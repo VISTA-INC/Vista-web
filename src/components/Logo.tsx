@@ -1,7 +1,7 @@
 export function PrismMark({ size = 22 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden>
-      <path d="M16 3 3 27h16L16 3Z" fill="#1e3a8a" />
+      <path d="M16 3 3 27h26L16 3Z" fill="#1e3a8a" />
       <path d="M16 3l3 24h10L16 3Z" fill="#142a63" />
     </svg>
   );
