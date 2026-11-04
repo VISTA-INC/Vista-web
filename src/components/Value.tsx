@@ -22,7 +22,7 @@ export default function Value() {
         <SectionHeader
           index="01"
           label="Why VISTA"
-          title="Data access for the people who run operations, not just the people who analyze them."
+          title="Data access for the people who run operations, not just the people who analyze them"
           intro="Most teams rely on dashboards built for analysts, or chatbots that guess. PRISM gives frontline teams accurate answers in plain language."
         />
 
@@ -34,7 +34,7 @@ export default function Value() {
                 i > 0 ? "mt-8 md:mt-0 border-t md:border-t-0" : ""
               }`}
             >
-              <h3 className="text-lg font-semibold text-ink">{v.title}</h3>
+              <h3 className="text-lg font-medium text-ink">{v.title}</h3>
               <p className="mt-3 text-body leading-relaxed">{v.text}</p>
             </div>
           ))}

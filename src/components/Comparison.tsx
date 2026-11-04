@@ -73,17 +73,17 @@ export default function Comparison() {
         <SectionHeader
           index="03"
           label="Comparison"
-          title="How PRISM compares to the tools teams use today."
+          title="How PRISM compares to the tools teams use today"
         />
 
-        <div className="overflow-x-auto border border-line rounded-md">
+        <div className="overflow-x-auto border border-line rounded-xl">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
               <tr className="border-b border-line">
-                <th className="px-4 py-4 text-xs font-medium uppercase tracking-wider text-muted">Capability</th>
-                <th className="px-4 py-4 text-xs font-medium uppercase tracking-wider text-muted">BI dashboard</th>
-                <th className="px-4 py-4 text-xs font-medium uppercase tracking-wider text-muted">AI chatbot</th>
-                <th className="px-4 py-4 text-xs font-semibold uppercase tracking-wider text-ink bg-canvas">PRISM</th>
+                <th className="px-4 py-4 text-sm font-normal text-muted">Capability</th>
+                <th className="px-4 py-4 text-sm font-normal text-muted">BI dashboard</th>
+                <th className="px-4 py-4 text-sm font-normal text-muted">AI chatbot</th>
+                <th className="px-4 py-4 text-sm font-medium text-ink bg-canvas">PRISM</th>
               </tr>
             </thead>
             <tbody>

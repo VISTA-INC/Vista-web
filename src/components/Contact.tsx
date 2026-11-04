@@ -9,7 +9,7 @@ import SectionHeader from "./SectionHeader";
 const EMPTY = { name: "", company: "", email: "", message: "" };
 
 const inputClass =
-  "w-full px-3.5 py-2.5 rounded-md border border-line bg-paper text-ink placeholder:text-zinc-400 focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-colors";
+  "w-full px-3.5 py-2.5 rounded-lg border border-line bg-paper text-ink placeholder:text-zinc-400 focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-colors";
 
 export default function Contact() {
   const [formData, setFormData] = useState(EMPTY);
@@ -40,13 +40,13 @@ export default function Contact() {
         <SectionHeader
           index="07"
           label="Contact"
-          title="Run a pilot with your team."
+          title="Run a pilot with your team"
           intro="Tell us about your operation and the questions your team needs answered. We will follow up to scope a pilot."
         />
 
         <div className="grid gap-6 md:grid-cols-12">
           <div className="md:col-span-3 text-sm text-muted leading-relaxed">
-            <p className="font-semibold text-ink mb-2">What to include</p>
+            <p className="font-medium text-ink mb-2">What to include</p>
             <ul className="space-y-1">
               <li>Industry and site size</li>
               <li>Data sources you use</li>
@@ -75,7 +75,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className="px-6 py-3 rounded-md bg-ink text-paper text-sm font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send inquiry"}
               </button>

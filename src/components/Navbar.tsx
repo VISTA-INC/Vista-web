@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-line">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-base font-semibold tracking-[0.18em] text-ink">
+        <a href="#" className="text-base font-semibold tracking-[0.12em] text-ink">
           VISTA
         </a>
 
@@ -31,7 +31,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="text-sm font-medium px-4 py-2 rounded-md bg-ink text-paper hover:bg-zinc-800 transition-colors"
+            className="text-sm font-medium inline-flex items-center h-9 px-4 rounded-lg bg-ink text-paper hover:bg-zinc-800 transition-colors"
           >
             Request a pilot
           </a>

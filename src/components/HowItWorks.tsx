@@ -3,7 +3,7 @@ import SectionHeader from "./SectionHeader";
 const PATHS = [
   {
     type: "Data question",
-    example: "\"Show average energy use by machine.\"",
+    example: "\"Show average energy use by machine\"",
     steps: ["AI writes pandas code", "Code runs on your real data", "Chart and interactive 3D graph"],
   },
   {
@@ -25,18 +25,18 @@ export default function HowItWorks() {
         <SectionHeader
           index="04"
           label="How it works"
-          title="From voice to verified answer in seconds."
+          title="From voice to verified answer in seconds"
           intro="Speech is transcribed (Whisper or Gemini) and the question is classified. PRISM then routes it to the right pipeline."
         />
 
-        <div className="border border-line rounded-md overflow-hidden bg-paper">
+        <div className="border border-line rounded-xl overflow-hidden bg-paper">
           {PATHS.map((p, i) => (
             <div
               key={p.type}
               className={`grid gap-4 md:grid-cols-12 p-6 md:p-8 ${i > 0 ? "border-t border-line" : ""}`}
             >
               <div className="md:col-span-4">
-                <h3 className="font-semibold text-ink">{p.type}</h3>
+                <h3 className="font-medium text-ink">{p.type}</h3>
                 <p className="mt-1 text-sm text-muted">{p.example}</p>
               </div>
               <ol className="md:col-span-8 grid sm:grid-cols-3 gap-3 text-sm">
@@ -52,7 +52,7 @@ export default function HowItWorks() {
         </div>
 
         <div id="security" className="mt-16 grid gap-6 md:grid-cols-12">
-          <h3 className="md:col-span-3 text-sm font-semibold text-ink">Accuracy and security</h3>
+          <h3 className="md:col-span-3 text-sm font-medium text-ink">Accuracy and security</h3>
           <p className="md:col-span-9 text-body leading-relaxed max-w-3xl">
             For chart questions, the AI only writes the analysis code. Pandas
             runs it on the real dataset, and the result is cached so the 3D
