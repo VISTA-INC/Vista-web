@@ -9,8 +9,6 @@ const NAV_LINKS = [
 
 const pill = "inline-flex items-center h-8 px-3.5 rounded-full text-[13px] transition-colors";
 
-// Desktop: section pills on the left, logo in the middle, one action on the right.
-// Phones: logo and the action only; MobileNav adds the bottom tab bar.
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur pt-[env(safe-area-inset-top)]">

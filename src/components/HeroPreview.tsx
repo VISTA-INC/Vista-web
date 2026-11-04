@@ -281,7 +281,7 @@ export default function HeroPreview() {
   const chartProps = { q, grow, hover, setHover };
 
   return (
-    <figure ref={root} className="rounded-2xl bg-[#25004b] text-[#f3ecf8] shadow-[0_8px_24px_rgba(0,0,0,0.45)] overflow-hidden">
+    <figure ref={root} className="rounded-2xl bg-[#25004b] text-[#f3ecf8] shadow-[0_8px_24px_rgba(0,0,0,0.25)] overflow-hidden">
       <div className="flex items-center justify-between gap-4 px-5 h-12 border-b border-white/[0.08] text-xs text-[#a98cc0]">
         <span className="font-medium text-[#f3ecf8]">PRISM</span>
         <span className="font-mono truncate">{q.meta}</span>

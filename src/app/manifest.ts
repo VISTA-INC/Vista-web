@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Voice data assistant for Meta Quest. Answers, charts and 3D views computed from your own data.",
     start_url: "/",
     display: "standalone",
-    background_color: "#14060a",
-    theme_color: "#14060a",
+    background_color: "#f3edf9",
+    theme_color: "#f3edf9",
     icons: [
       { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { src: "/icon-512.png", sizes: "512x512", type: "image/png" },

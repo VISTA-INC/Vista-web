@@ -29,7 +29,7 @@ export default function Hero() {
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-btn text-ink text-sm font-medium hover:bg-[#3c0f6e] transition-colors"
+                className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-btn text-ink text-sm font-medium hover:bg-btn-hover transition-colors"
               >
                 See how it works
               </a>

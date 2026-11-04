@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Night-sky palette: #14060A, #25004B, #6C08AB, #6E289A, #9C65BB.
-     Surfaces are mixes of the two darkest; text is a light tint of the lilac. */
-  --color-paper: #14060a;
-  --color-canvas: #1b0424;
-  --color-card: #200238;
-  --color-btn: #25004b;
-  --color-field: #1b0424;
-  --color-ink: #f3ecf8;
-  --color-body: #d9cbe6;
-  --color-muted: #a98cc0;
-  --color-line: #3a1f4d;
-  --color-accent: #9c65bb;
+  /* Violet palette: #14060A, #25004B, #6C08AB, #6E289A, #9C65BB.
+     Light surfaces derived from the lightest hues; text from the darkest. */
+  --color-paper: #f3edf9;
+  --color-canvas: #ebe3f2;
+  --color-card: #ffffff;
+  --color-btn: #ece4f3;
+  --color-btn-hover: #ddd0eb;
+  --color-field: #ffffff;
+  --color-ink: #14060a;
+  --color-body: #3a1f4d;
+  --color-muted: #7a5a94;
+  --color-line: #d9cbe6;
+  --color-accent: #6c08ab;
   --color-primary: #6c08ab;
-  --color-primary-hover: #6e289a;
+  --color-primary-hover: #5a0690;
   --font-sans: var(--font-dm-sans);
   --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
@@ -31,7 +32,7 @@ body {
 }
 
 ::selection {
-  background: #6e289a;
+  background: #9c65bb;
   color: #ffffff;
 }
 
