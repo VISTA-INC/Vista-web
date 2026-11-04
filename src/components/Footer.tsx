@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="bg-ink text-paper pb-[calc(64px+env(safe-area-inset-bottom))] md:pb-0">
       <div className="max-w-6xl mx-auto px-6 pt-14 pb-10 grid gap-10 md:grid-cols-12">
         <div className="md:col-span-4">
-          <Logo tone="dark" />
+          <Logo tone="dark" height={44} />
         </div>
         <nav className="md:col-span-8" aria-label="Footer">
           <ul className="border-t border-white/10">

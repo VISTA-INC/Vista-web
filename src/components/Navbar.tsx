@@ -23,7 +23,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <a href="#" aria-label="PRISM, home" className="md:justify-self-center">
+        <a href="#" aria-label="PRISM, home" className="md:justify-self-center flex">
           <Logo />
         </a>
 

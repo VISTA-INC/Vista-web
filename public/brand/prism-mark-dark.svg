@@ -1,4 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <path d="M16 3 3 27h26L16 3Z" fill="#a9b8f2"/>
-  <path d="M16 3l3 24h10L16 3Z" fill="#7189e0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 222 470 470" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="964" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b0056"/><stop offset="1" stop-color="#060039"/>
+    </linearGradient>
+    <linearGradient id="bigA" x1="20" y1="367" x2="207" y2="254" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#407bda"/><stop offset="0.55" stop-color="#5943bf"/><stop offset="1" stop-color="#a626d5"/>
+    </linearGradient>
+    <linearGradient id="bigB" x1="207" y1="254" x2="200" y2="481" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5a2bb0"/><stop offset="0.35" stop-color="#4d239a"/><stop offset="0.65" stop-color="#242981"/><stop offset="1" stop-color="#0d2675"/>
+    </linearGradient>
+    <linearGradient id="bigC" x1="20" y1="367" x2="207" y2="481" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4a88e2"/><stop offset="0.5" stop-color="#3c61b8"/><stop offset="1" stop-color="#14307e"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="207" y1="380" x2="451" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0a3d0"/><stop offset="0.3" stop-color="#dd8dbd"/><stop offset="0.6" stop-color="#b24fa3"/><stop offset="1" stop-color="#8a2f8e"/>
+    </linearGradient>
+    <linearGradient id="tealL" x1="200" y1="465" x2="227" y2="658" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d2c56"/><stop offset="0.45" stop-color="#2c5476"/><stop offset="1" stop-color="#4589a6"/>
+    </linearGradient>
+    <linearGradient id="tealR" x1="300" y1="450" x2="235" y2="650" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#441a5e"/><stop offset="0.45" stop-color="#202f5b"/><stop offset="1" stop-color="#2f6585"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="295" y1="402" x2="436" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#63d2b4"/><stop offset="1" stop-color="#5bc6ae"/>
+    </linearGradient>
+    <linearGradient id="pyr" x1="0" y1="582" x2="0" y2="660" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0a8f6"/><stop offset="0.2" stop-color="#e995f2"/>
+      <stop offset="0.2" stop-color="#df7ff4"/><stop offset="0.4" stop-color="#d869f5"/>
+      <stop offset="0.4" stop-color="#b04ce0"/><stop offset="0.6" stop-color="#8629c3"/>
+      <stop offset="0.6" stop-color="#6a22aa"/><stop offset="0.8" stop-color="#501d92"/>
+      <stop offset="0.8" stop-color="#40187f"/><stop offset="1" stop-color="#35147a"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <polygon points="180,465 265,470 227.5,658" fill="url(#tealL)"/>
+    <polygon points="265,470 446,437 227.5,658" fill="url(#tealR)"/>
+    <polygon points="20,367.5 207.5,254 118,425" fill="url(#bigA)"/>
+    <polygon points="207.5,254 207.5,481 118,425" fill="url(#bigB)"/>
+    <polygon points="20,367.5 118,425 207.5,481" fill="url(#bigC)"/>
+    <polygon points="207.5,372.5 451,432.5 265,471" fill="url(#pink)"/>
+    <path d="M395,302.5 295,402.5 436,446Z M340,392.5 387.5,352.5 400,412.5Z" fill="url(#mint)" fill-rule="evenodd"/>
+    <polygon points="395,302.5 387.5,352.5 400,412.5 436,446" fill="#3fa592" opacity="0.55"/>
+    <path d="M412.5,310 471,342.5 412.5,373Z M421,326 452,342.5 421,358Z" fill="#5fb2bf" fill-rule="evenodd"/>
+    <polygon points="179,582.5 135,660 225,660" fill="url(#pyr)"/>
+  </g>
 </svg>
