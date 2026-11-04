@@ -87,9 +87,9 @@ function timeline(q: Question) {
 }
 
 // Colors (match the PRISM app spec)
-const NEUTRAL = { top: "#4a4a50", front: "#38383d", side: "#2b2b2f" };
-const HOVER = { top: "#6a6a71", front: "#505056", side: "#3d3d42" };
-const ACCENT = { top: "#8ea2ee", front: "#5d77d6", side: "#4560c2" };
+const NEUTRAL = { top: "#3d3894", front: "#2f2a85", side: "#241f73" };
+const HOVER = { top: "#5d58b8", front: "#4A45A3", side: "#3a3590" };
+const ACCENT = { top: "#63d2b4", front: "#3fae95", side: "#2f8f7b" };
 
 // Isometric projection
 const C = Math.cos(Math.PI / 6);
@@ -117,7 +117,7 @@ function IsoChart({ q, grow, hover, setHover }: ChartProps) {
   const end = (q.data.length - 1) * GAP + W + 20;
   return (
     <svg viewBox="-88 -104 452 330" className="w-full h-auto" role="img" aria-label={`3D bar chart: ${q.title}`}>
-      <polygon points={pts([[-20, -20, 0], [end, -20, 0], [end, W + 20, 0], [-20, W + 20, 0]])} fill="#1c1c1f" stroke="rgba(237,237,237,0.08)" />
+      <polygon points={pts([[-20, -20, 0], [end, -20, 0], [end, W + 20, 0], [-20, W + 20, 0]])} fill="#140f66" stroke="rgba(255, 255, 255, 0.1)" />
       {q.data.map((d, i) => {
         const g = grow(i);
         const x = i * GAP;
@@ -143,10 +143,10 @@ function IsoChart({ q, grow, hover, setHover }: ChartProps) {
             <polygon points={pts([[x + W, 0, 0], [x + W, W, 0], [x + W, W, h], [x + W, 0, h]])} fill={c.side} className="transition-[fill] duration-150" />
             <polygon points={pts([[x, W, 0], [x + W, W, 0], [x + W, W, h], [x, W, h]])} fill={c.front} className="transition-[fill] duration-150" />
             <polygon points={pts([[x, 0, h], [x + W, 0, h], [x + W, W, h], [x, W, h]])} fill={c.top} className="transition-[fill] duration-150" />
-            <text x={vx} y={vy - 10} textAnchor="middle" className="font-mono tabular-nums" fontSize="11" fill={isTop ? "#a9b8f2" : hover === i ? "#ededed" : "#85858b"} opacity={g > 0.05 ? 1 : 0}>
+            <text x={vx} y={vy - 10} textAnchor="middle" className="font-mono tabular-nums" fontSize="11" fill={isTop ? "#7fe0c4" : hover === i ? "#f3f2ff" : "#918dc4"} opacity={g > 0.05 ? 1 : 0}>
               {fmt(d.v * g)}
             </text>
-            <text x={lx - 6} y={ly + 10} textAnchor="end" className="font-mono" fontSize="10" fill={hover === i ? "#ededed" : "#85858b"}>
+            <text x={lx - 6} y={ly + 10} textAnchor="end" className="font-mono" fontSize="10" fill={hover === i ? "#f3f2ff" : "#918dc4"}>
               {d.name}
             </text>
           </g>
@@ -166,9 +166,9 @@ function FlatChart({ q, grow, hover, setHover }: ChartProps) {
   return (
     <svg viewBox="0 0 400 230" className="w-full h-auto" role="img" aria-label={`Bar chart: ${q.title}`}>
       {[0.5, 1].map((f) => (
-        <line key={f} x1="8" x2="392" y1={base - maxH * f} y2={base - maxH * f} stroke="rgba(237,237,237,0.06)" />
+        <line key={f} x1="8" x2="392" y1={base - maxH * f} y2={base - maxH * f} stroke="rgba(255, 255, 255, 0.08)" />
       ))}
-      <line x1="8" x2="392" y1={base} y2={base} stroke="rgba(237,237,237,0.14)" />
+      <line x1="8" x2="392" y1={base} y2={base} stroke="rgba(255, 255, 255, 0.16)" />
       {q.data.map((d, i) => {
         const g = grow(i);
         const h = (d.v / top) * maxH * g;
@@ -189,10 +189,10 @@ function FlatChart({ q, grow, hover, setHover }: ChartProps) {
           >
             <rect x={x - 8} y={base - maxH - 24} width={bw + 16} height={maxH + 52} fill="transparent" />
             <rect x={x} y={base - h} width={bw} height={h} rx="4" fill={isTop ? ACCENT.top : hover === i ? HOVER.top : NEUTRAL.top} className="transition-[fill] duration-150" />
-            <text x={x + bw / 2} y={base - h - 8} textAnchor="middle" className="font-mono tabular-nums" fontSize="11" fill={isTop ? "#a9b8f2" : hover === i ? "#ededed" : "#85858b"} opacity={g > 0.05 ? 1 : 0}>
+            <text x={x + bw / 2} y={base - h - 8} textAnchor="middle" className="font-mono tabular-nums" fontSize="11" fill={isTop ? "#7fe0c4" : hover === i ? "#f3f2ff" : "#918dc4"} opacity={g > 0.05 ? 1 : 0}>
               {fmt(d.v * g)}
             </text>
-            <text x={x + bw / 2} y={base + 18} textAnchor="middle" className="font-mono" fontSize="10" fill={hover === i ? "#ededed" : "#85858b"}>
+            <text x={x + bw / 2} y={base + 18} textAnchor="middle" className="font-mono" fontSize="10" fill={hover === i ? "#f3f2ff" : "#918dc4"}>
               {d.name}
             </text>
           </g>
@@ -281,16 +281,16 @@ export default function HeroPreview() {
   const chartProps = { q, grow, hover, setHover };
 
   return (
-    <figure ref={root} className="rounded-2xl bg-[#141415] text-[#ededed] shadow-[0_8px_24px_rgba(0,0,0,0.12)] overflow-hidden">
-      <div className="flex items-center justify-between gap-4 px-5 h-12 border-b border-white/[0.08] text-xs text-[#85858b]">
-        <span className="font-medium text-[#ededed]">PRISM</span>
+    <figure ref={root} className="rounded-2xl bg-[#0B0056] text-[#f3f2ff] shadow-[0_8px_24px_rgba(0,0,0,0.12)] overflow-hidden">
+      <div className="flex items-center justify-between gap-4 px-5 h-12 border-b border-white/[0.08] text-xs text-[#918dc4]">
+        <span className="font-medium text-[#f3f2ff]">PRISM</span>
         <span className="font-mono truncate">{q.meta}</span>
       </div>
 
       <div className="grid md:grid-cols-12">
         <div className="md:col-span-5 p-6 md:p-8 flex flex-col justify-center gap-6 border-b md:border-b-0 md:border-r border-white/[0.08]">
           <div className="flex flex-col gap-3">
-            <span className="text-xs text-[#85858b]">Try a question</span>
+            <span className="text-xs text-[#918dc4]">Try a question</span>
             <div className="flex flex-wrap gap-2" role="group" aria-label="Sample questions">
               {QUESTIONS.map((item, i) => (
                 <button
@@ -300,8 +300,8 @@ export default function HeroPreview() {
                   aria-pressed={i === qi}
                   className={`h-8 px-3 rounded-lg text-xs border transition-[color,background-color,transform] duration-150 active:scale-[0.97] ${
                     i === qi
-                      ? "bg-[#ededed] text-[#141415] border-transparent"
-                      : "bg-[#1c1c1f] text-[#a1a1a6] border-white/[0.08] hover:text-[#ededed] hover:bg-[#232325]"
+                      ? "bg-[#f3f2ff] text-[#0B0056] border-transparent"
+                      : "bg-[#140f66] text-[#bdb9e3] border-white/[0.08] hover:text-[#f3f2ff] hover:bg-[#1C1775]"
                   }`}
                 >
                   {item.chip}
@@ -311,23 +311,23 @@ export default function HeroPreview() {
           </div>
 
           <div className="flex gap-3 min-h-12">
-            <span className="mt-0.5 text-[#85858b]"><Mic /></span>
+            <span className="mt-0.5 text-[#918dc4]"><Mic /></span>
             <p>
               <span aria-hidden="true">{typedText}</span>
               <span className="sr-only">{q.question}</span>
             </p>
           </div>
 
-          <div className="relative rounded-xl bg-[#1c1c1f] border border-white/[0.06] p-5">
+          <div className="relative rounded-xl bg-[#140f66] border border-white/[0.06] p-5">
             {/* Analyzing status, shown before the answer arrives */}
             <div
               className={`absolute inset-5 flex flex-col justify-center gap-3 transition-opacity duration-200 ${analyzing ? "opacity-100" : "opacity-0 pointer-events-none"}`}
               aria-hidden={!analyzing}
             >
-              <p className="font-mono text-xs text-[#85858b]">Analyzing {q.file}</p>
-              <span className="block h-0.5 rounded-full bg-[#232325] overflow-hidden">
+              <p className="font-mono text-xs text-[#918dc4]">Analyzing {q.file}</p>
+              <span className="block h-0.5 rounded-full bg-[#1C1775] overflow-hidden">
                 <span
-                  className="block h-full bg-[#8ea2ee] origin-left"
+                  className="block h-full bg-[#63d2b4] origin-left"
                   style={{ transform: `scaleX(${clamp((elapsed - t.typed) / ANALYZE_MS)})` }}
                 />
               </span>
@@ -339,18 +339,18 @@ export default function HeroPreview() {
               }`}
               aria-live="polite"
             >
-              <p className="text-[#a1a1a6] leading-relaxed">
+              <p className="text-[#bdb9e3] leading-relaxed">
                 {q.answer[0]}
-                <span className="font-medium text-[#ededed] tabular-nums">{q.answer[1]}</span>
+                <span className="font-medium text-[#f3f2ff] tabular-nums">{q.answer[1]}</span>
                 {q.answer[2]}
               </p>
-              <p className="mt-4 font-mono text-xs text-[#85858b]">
-                <span className="text-[#a9b8f2]">Σ</span> Computed with pandas from {q.file}
+              <p className="mt-4 font-mono text-xs text-[#918dc4]">
+                <span className="text-[#7fe0c4]">Σ</span> Computed with pandas from {q.file}
               </p>
               <button
                 type="button"
                 onClick={toggleView}
-                className="mt-5 hidden sm:inline-flex items-center h-8 px-3 rounded-lg bg-[#232325] border border-white/[0.08] text-xs text-[#ededed] hover:bg-[#2b2b2f] transition-[background-color,transform] duration-150 active:scale-[0.97]"
+                className="mt-5 hidden sm:inline-flex items-center h-8 px-3 rounded-lg bg-[#1C1775] border border-white/[0.08] text-xs text-[#f3f2ff] hover:bg-[#241f73] transition-[background-color,transform] duration-150 active:scale-[0.97]"
               >
                 {view === "3d" ? "View in 2D" : "View in 3D"}
               </button>
@@ -360,11 +360,11 @@ export default function HeroPreview() {
 
         <div className="md:col-span-7 px-6 py-8 md:px-10 flex flex-col gap-4">
           <div className="flex items-baseline justify-between gap-4">
-            <p className="text-xs text-[#85858b]">{q.title}</p>
-            <p className="hidden sm:block font-mono text-xs text-[#85858b] tabular-nums min-h-4">
+            <p className="text-xs text-[#918dc4]">{q.title}</p>
+            <p className="hidden sm:block font-mono text-xs text-[#918dc4] tabular-nums min-h-4">
               {sel ? (
                 <>
-                  <span className="text-[#ededed]">{sel.name}</span> · {fmt(sel.v)} {q.unit}
+                  <span className="text-[#f3f2ff]">{sel.name}</span> · {fmt(sel.v)} {q.unit}
                   {sel.v !== topVal && ` · ${Math.round((sel.v / topVal) * 100)}% of the top`}
                 </>
               ) : (
@@ -393,16 +393,16 @@ export default function HeroPreview() {
                     onClick={() => setHover(on ? null : i)}
                     aria-pressed={on}
                     aria-label={barLabel(q, d)}
-                    className={`w-full grid grid-cols-[64px_1fr_48px] items-center gap-3 h-9 px-2 -mx-2 rounded-lg text-xs font-mono transition-colors ${on ? "bg-[#1c1c1f]" : ""}`}
+                    className={`w-full grid grid-cols-[64px_1fr_48px] items-center gap-3 h-9 px-2 -mx-2 rounded-lg text-xs font-mono transition-colors ${on ? "bg-[#140f66]" : ""}`}
                   >
-                    <span className={`text-left ${on ? "text-[#ededed]" : "text-[#85858b]"}`}>{d.name}</span>
-                    <span className="h-2 rounded-sm bg-[#232325] overflow-hidden">
+                    <span className={`text-left ${on ? "text-[#f3f2ff]" : "text-[#918dc4]"}`}>{d.name}</span>
+                    <span className="h-2 rounded-sm bg-[#1C1775] overflow-hidden">
                       <span
-                        className={`block h-full rounded-sm origin-left ${isTop ? "bg-[#8ea2ee]" : on ? "bg-[#6a6a71]" : "bg-[#4a4a50]"}`}
+                        className={`block h-full rounded-sm origin-left ${isTop ? "bg-[#63d2b4]" : on ? "bg-[#5d58b8]" : "bg-[#3d3894]"}`}
                         style={{ transform: `scaleX(${(d.v / topVal) * grow(i)})` }}
                       />
                     </span>
-                    <span className={`text-right tabular-nums ${isTop ? "text-[#a9b8f2]" : on ? "text-[#ededed]" : "text-[#85858b]"}`}>{fmt(d.v * grow(i))}</span>
+                    <span className={`text-right tabular-nums ${isTop ? "text-[#7fe0c4]" : on ? "text-[#f3f2ff]" : "text-[#918dc4]"}`}>{fmt(d.v * grow(i))}</span>
                   </button>
                 </li>
               );
@@ -411,7 +411,7 @@ export default function HeroPreview() {
         </div>
       </div>
 
-      <figcaption className="px-5 py-3 border-t border-white/[0.08] text-xs text-[#85858b]">
+      <figcaption className="px-5 py-3 border-t border-white/[0.08] text-xs text-[#918dc4]">
         Example view with sample data
       </figcaption>
     </figure>
