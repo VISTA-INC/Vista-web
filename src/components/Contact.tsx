@@ -1,22 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import SectionHeader from "./SectionHeader";
 
 // TODO: Integrate EmailJS. Install @emailjs/browser, add service/template/public key
 // import emailjs from '@emailjs/browser';
 
+const EMPTY = { name: "", company: "", email: "", message: "" };
+
+const inputClass =
+  "w-full px-3.5 py-2.5 rounded-md border border-line bg-paper text-ink placeholder:text-zinc-400 focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-colors";
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(EMPTY);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
 
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
@@ -30,96 +30,61 @@ export default function Contact() {
 
     setSending(false);
     setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
-
+    setFormData(EMPTY);
     setTimeout(() => setSubmitted(false), 4000);
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-gray-50">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-16 reveal">
-          <div className="inline-block mb-4 px-3 py-1 rounded-full border border-indigo-200 bg-indigo-50 text-sm text-indigo-600">
-            Contact
+    <section id="contact" className="py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader
+          index="07"
+          label="Contact"
+          title="Run a pilot with your team."
+          intro="Tell us about your operation and the questions your team needs answered. We will follow up to scope a pilot."
+        />
+
+        <div className="grid gap-6 md:grid-cols-12">
+          <div className="md:col-span-3 text-sm text-muted leading-relaxed">
+            <p className="font-semibold text-ink mb-2">What to include</p>
+            <ul className="space-y-1">
+              <li>Industry and site size</li>
+              <li>Data sources you use</li>
+              <li>Hardware you have today</li>
+            </ul>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Get in Touch</h2>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Interested in PRISM? Want to run a pilot? Drop us a line.
-          </p>
-        </div>
 
-        <div className="reveal max-w-lg mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="md:col-span-9 max-w-2xl grid gap-5 sm:grid-cols-2">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-colors"
-                placeholder="Your name"
-              />
+              <label htmlFor="name" className="block text-sm font-medium text-ink mb-1.5">Name</label>
+              <input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Full name" />
             </div>
-
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-colors"
-                placeholder="you@company.com"
-              />
+              <label htmlFor="company" className="block text-sm font-medium text-ink mb-1.5">Company</label>
+              <input id="company" name="company" type="text" value={formData.company} onChange={handleChange} className={inputClass} placeholder="Company name" />
             </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-colors resize-none"
-                placeholder="Tell us about your use case..."
-              />
+            <div className="sm:col-span-2">
+              <label htmlFor="email" className="block text-sm font-medium text-ink mb-1.5">Work email</label>
+              <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="you@company.com" />
             </div>
-
-            <button
-              type="submit"
-              disabled={sending}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/25"
-            >
-              {sending ? "Sending..." : "Send Message"}
-            </button>
-
-            {submitted && (
-              <div className="text-center p-4 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-700 text-sm">
-                Message sent! We&apos;ll get back to you soon.
-              </div>
-            )}
+            <div className="sm:col-span-2">
+              <label htmlFor="message" className="block text-sm font-medium text-ink mb-1.5">Message</label>
+              <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Describe your use case" />
+            </div>
+            <div className="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-4">
+              <button
+                type="submit"
+                disabled={sending}
+                className="px-6 py-3 rounded-md bg-ink text-paper text-sm font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {sending ? "Sending…" : "Send inquiry"}
+              </button>
+              {submitted && (
+                <p role="status" className="text-sm text-body">
+                  Thank you. We will be in touch shortly.
+                </p>
+              )}
+            </div>
           </form>
         </div>
       </div>

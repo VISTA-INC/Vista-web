@@ -1,104 +1,98 @@
-const ROWS = [
+import SectionHeader from "./SectionHeader";
+
+type Cell = { ok: boolean; label: string };
+
+const ROWS: { feature: string; bi: Cell; chatbot: Cell; prism: Cell }[] = [
   {
     feature: "Ask in your own words",
-    bi: { value: false, label: "No" },
-    chatbot: { value: true, label: "Yes" },
-    prism: { value: true, label: "Voice, hands-free" },
+    bi: { ok: false, label: "No" },
+    chatbot: { ok: true, label: "Yes" },
+    prism: { ok: true, label: "Voice, hands-free" },
   },
   {
     feature: "No training needed",
-    bi: { value: false, label: "No" },
-    chatbot: { value: true, label: "Yes" },
-    prism: { value: true, label: "Yes" },
+    bi: { ok: false, label: "No" },
+    chatbot: { ok: true, label: "Yes" },
+    prism: { ok: true, label: "Yes" },
   },
   {
     feature: "Numbers from real data",
-    bi: { value: true, label: "Yes" },
-    chatbot: { value: false, label: "Often guessed" },
-    prism: { value: true, label: "AI writes code, code computes" },
+    bi: { ok: true, label: "Yes" },
+    chatbot: { ok: false, label: "Often guessed" },
+    prism: { ok: true, label: "Computed by code" },
   },
   {
     feature: "Visual answer",
-    bi: { value: true, label: "Yes" },
-    chatbot: { value: false, label: "Rarely" },
-    prism: { value: true, label: "Chart + interactive 3D" },
+    bi: { ok: true, label: "Yes" },
+    chatbot: { ok: false, label: "Rarely" },
+    prism: { ok: true, label: "Chart and interactive 3D" },
   },
   {
     feature: "Works on the floor",
-    bi: { value: false, label: "Desk only" },
-    chatbot: { value: false, label: "Desk / phone" },
-    prism: { value: true, label: "Headset, hands-free" },
+    bi: { ok: false, label: "Desk only" },
+    chatbot: { ok: false, label: "Desk or phone" },
+    prism: { ok: true, label: "Headset, hands-free" },
   },
   {
     feature: "Data stays on-premise",
-    bi: { value: true, label: "Usually" },
-    chatbot: { value: false, label: "Sent to cloud AI" },
-    prism: { value: true, label: "Raw data never leaves your server" },
+    bi: { ok: true, label: "Usually" },
+    chatbot: { ok: false, label: "Sent to cloud AI" },
+    prism: { ok: true, label: "Raw data never leaves" },
   },
 ];
 
-function StatusCell({ value, label }: { value: boolean; label: string }) {
+function Mark({ ok }: { ok: boolean }) {
+  return ok ? (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-ink shrink-0" aria-label="Yes">
+      <path d="M5 12l5 5L20 7" />
+    </svg>
+  ) : (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-300 shrink-0" aria-label="No">
+      <path d="M6 12h12" />
+    </svg>
+  );
+}
+
+function Td({ cell, highlight }: { cell: Cell; highlight?: boolean }) {
   return (
-    <td className="px-4 py-4 text-sm">
-      <div className="flex items-center gap-2">
-        {value ? (
-          <span className="text-emerald-600 font-bold">✓</span>
-        ) : (
-          <span className="text-red-400">✕</span>
-        )}
-        <span className={value ? "text-gray-700" : "text-gray-400"}>
-          {label}
+    <td className={`px-4 py-4 text-sm ${highlight ? "bg-canvas" : ""}`}>
+      <span className="flex items-center gap-2.5">
+        <Mark ok={cell.ok} />
+        <span className={cell.ok ? (highlight ? "text-ink font-medium" : "text-body") : "text-muted"}>
+          {cell.label}
         </span>
-      </div>
+      </span>
     </td>
   );
 }
 
 export default function Comparison() {
   return (
-    <section className="py-24 md:py-32 bg-white">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-16 reveal">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Why PRISM?
-          </h2>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            See how PRISM compares to the tools you already know.
-          </p>
-        </div>
+    <section className="py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader
+          index="03"
+          label="Comparison"
+          title="How PRISM compares to the tools teams use today."
+        />
 
-        <div className="reveal overflow-x-auto">
-          <table className="w-full border-collapse">
+        <div className="overflow-x-auto border border-line rounded-md">
+          <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
-              <tr className="border-b border-gray-200">
-                <th className="px-4 py-4 text-left text-sm font-medium text-gray-500">
-                  Feature
-                </th>
-                <th className="px-4 py-4 text-left text-sm font-medium text-gray-500">
-                  BI Dashboard
-                </th>
-                <th className="px-4 py-4 text-left text-sm font-medium text-gray-500">
-                  AI Chatbot
-                </th>
-                <th className="px-4 py-4 text-left text-sm font-medium text-gray-500">
-                  <span className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent font-bold">
-                    PRISM
-                  </span>
-                </th>
+              <tr className="border-b border-line">
+                <th className="px-4 py-4 text-xs font-medium uppercase tracking-wider text-muted">Capability</th>
+                <th className="px-4 py-4 text-xs font-medium uppercase tracking-wider text-muted">BI dashboard</th>
+                <th className="px-4 py-4 text-xs font-medium uppercase tracking-wider text-muted">AI chatbot</th>
+                <th className="px-4 py-4 text-xs font-semibold uppercase tracking-wider text-ink bg-canvas">PRISM</th>
               </tr>
             </thead>
             <tbody>
               {ROWS.map((row) => (
-                <tr
-                  key={row.feature}
-                  className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
-                >
-                  <td className="px-4 py-4 text-sm font-medium text-gray-800">
-                    {row.feature}
-                  </td>
-                  <StatusCell {...row.bi} />
-                  <StatusCell {...row.chatbot} />
-                  <StatusCell {...row.prism} />
+                <tr key={row.feature} className="border-b border-line last:border-0">
+                  <td className="px-4 py-4 text-sm font-medium text-ink">{row.feature}</td>
+                  <Td cell={row.bi} />
+                  <Td cell={row.chatbot} />
+                  <Td cell={row.prism} highlight />
                 </tr>
               ))}
             </tbody>

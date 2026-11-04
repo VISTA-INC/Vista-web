@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VISTA INC. | Spatial Data Intelligence",
+  title: "VISTA | PRISM voice-driven data assistant for mixed reality",
   description:
     "VISTA builds spatial computing tools that turn complex data into conversations and touchable 3D visualizations. Our product PRISM is a mixed-reality data assistant for Meta Quest.",
   keywords: [

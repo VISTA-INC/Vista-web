@@ -1,13 +1,13 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import Value from "../components/Value";
 import Product from "../components/Product";
-import HowItWorks from "../components/HowItWorks";
 import Comparison from "../components/Comparison";
+import HowItWorks from "../components/HowItWorks";
 import Research from "../components/Research";
 import Team from "../components/Team";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-import ScrollReveal from "../components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -15,6 +15,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Value />
         <Product />
         <Comparison />
         <HowItWorks />
@@ -23,7 +24,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <ScrollReveal />
     </>
   );
 }
