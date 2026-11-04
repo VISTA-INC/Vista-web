@@ -1,60 +1,53 @@
+const FACTS = [
+  { title: "On-premise", text: "Raw data stays on your own servers." },
+  { title: "Computed, not guessed", text: "Every number comes from code run on your data." },
+  { title: "Hands-free", text: "Voice input on Meta Quest headsets." },
+  { title: "Peer-reviewed", text: "Accepted at IEEE ISMAR 2026." },
+];
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Soft gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-violet-50" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6366f1]/10 rounded-full blur-[128px] animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#8b5cf6]/8 rounded-full blur-[128px] animate-pulse-glow" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#06b6d4]/5 rounded-full blur-[128px]" />
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 text-sm text-indigo-600">
-          Spatial Data Intelligence
-        </div>
-
-        <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6 text-gray-900">
-          See Your Data.{" "}
-          <span className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
-            Touch Your Insights.
-          </span>
-        </h1>
-
-        <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-          VISTA builds spatial computing tools that turn complex data into
-          conversations and touchable 3D visualizations. No analyst required.
+    <section className="border-b border-line">
+      <div className="max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
+        <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted mb-8">
+          VISTA Inc. · Spatial data intelligence
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#product"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white font-medium hover:opacity-90 transition-opacity shadow-lg shadow-indigo-500/25"
-          >
-            Explore PRISM
-          </a>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.08] text-ink max-w-4xl">
+          Answers from your operational data, where the work happens.
+        </h1>
+
+        <p className="mt-8 text-lg md:text-xl leading-relaxed text-body max-w-2xl">
+          PRISM is a voice-driven data assistant for mixed reality. Your team
+          asks a question out loud and gets a clear answer, a chart, and a 3D
+          view they can explore. No analyst, no dashboard training.
+        </p>
+
+        <div className="mt-10 flex flex-col sm:flex-row gap-3">
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-gray-300 text-gray-600 font-medium hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-ink text-paper text-sm font-medium hover:bg-zinc-800 transition-colors"
           >
-            Get in Touch
+            Request a pilot
+          </a>
+          <a
+            href="#how-it-works"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-line text-ink text-sm font-medium hover:bg-canvas transition-colors"
+          >
+            See how it works
           </a>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400">
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
-          <rect
-            x="1"
-            y="1"
-            width="14"
-            height="22"
-            rx="7"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-          <circle cx="8" cy="8" r="2" fill="currentColor" className="animate-bounce" />
-        </svg>
+      <div className="border-t border-line bg-canvas">
+        <dl className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line">
+          {FACTS.map((fact) => (
+            <div key={fact.title} className="bg-canvas px-6 py-8">
+              <dt className="text-sm font-semibold text-ink">{fact.title}</dt>
+              <dd className="mt-1 text-sm text-muted leading-relaxed">{fact.text}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
