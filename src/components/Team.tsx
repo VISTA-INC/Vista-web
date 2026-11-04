@@ -23,7 +23,7 @@ const TEAM = [
 
 export default function Team() {
   return (
-    <section id="team" className="py-24 md:py-32 bg-canvas border-y border-line">
+    <section id="team" className="py-16 md:py-32 bg-canvas border-y border-line">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="06"
@@ -42,7 +42,7 @@ export default function Team() {
                 href={m.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 text-sm font-medium text-accent hover:underline underline-offset-4"
+                className="mt-4 inline-flex items-center min-h-11 text-sm font-medium text-accent hover:underline underline-offset-4"
               >
                 LinkedIn →
               </a>

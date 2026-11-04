@@ -20,7 +20,7 @@ const PATHS = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-canvas border-y border-line">
+    <section id="how-it-works" className="py-16 md:py-32 bg-canvas border-y border-line">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="04"

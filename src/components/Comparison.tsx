@@ -68,7 +68,7 @@ function Td({ cell, highlight }: { cell: Cell; highlight?: boolean }) {
 
 export default function Comparison() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="03"
@@ -76,7 +76,34 @@ export default function Comparison() {
           title="How PRISM compares to the tools teams use today"
         />
 
-        <div className="overflow-x-auto border border-line rounded-xl">
+        {/* Phones: one card per capability instead of a sideways-scrolling table */}
+        <ul className="md:hidden flex flex-col gap-3">
+          {ROWS.map((row) => (
+            <li key={row.feature} className="border border-line rounded-xl p-4">
+              <p className="font-medium text-ink">{row.feature}</p>
+              <dl className="mt-3 grid grid-cols-[96px_1fr] gap-x-3 gap-y-2 text-sm">
+                {[
+                  ["PRISM", row.prism, true],
+                  ["BI dashboard", row.bi, false],
+                  ["AI chatbot", row.chatbot, false],
+                ].map(([name, cell, hi]) => {
+                  const c = cell as Cell;
+                  return (
+                    <div key={name as string} className="contents">
+                      <dt className={hi ? "text-ink font-medium" : "text-muted"}>{name as string}</dt>
+                      <dd className="flex items-center gap-2">
+                        <Mark ok={c.ok} />
+                        <span className={c.ok ? (hi ? "text-ink" : "text-body") : "text-muted"}>{c.label}</span>
+                      </dd>
+                    </div>
+                  );
+                })}
+              </dl>
+            </li>
+          ))}
+        </ul>
+
+        <div className="hidden md:block overflow-x-auto border border-line rounded-xl">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
               <tr className="border-b border-line">

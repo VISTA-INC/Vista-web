@@ -9,7 +9,7 @@ import SectionHeader from "./SectionHeader";
 const EMPTY = { name: "", company: "", email: "", message: "" };
 
 const inputClass =
-  "w-full px-3.5 py-2.5 rounded-lg border border-line bg-paper text-ink placeholder:text-zinc-400 focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-colors";
+  "w-full px-3.5 py-3 md:py-2.5 text-base md:text-sm rounded-lg border border-line bg-paper text-ink placeholder:text-zinc-400 focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-colors";
 
 export default function Contact() {
   const [formData, setFormData] = useState(EMPTY);
@@ -35,7 +35,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32">
+    <section id="contact" className="py-16 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="07"
@@ -57,15 +57,15 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="md:col-span-9 max-w-2xl grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-ink mb-1.5">Name</label>
-              <input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Full name" />
+              <input id="name" name="name" type="text" autoComplete="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Full name" />
             </div>
             <div>
               <label htmlFor="company" className="block text-sm font-medium text-ink mb-1.5">Company</label>
-              <input id="company" name="company" type="text" value={formData.company} onChange={handleChange} className={inputClass} placeholder="Company name" />
+              <input id="company" name="company" type="text" autoComplete="organization" value={formData.company} onChange={handleChange} className={inputClass} placeholder="Company name" />
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="email" className="block text-sm font-medium text-ink mb-1.5">Work email</label>
-              <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="you@company.com" />
+              <input id="email" name="email" type="email" autoComplete="email" inputMode="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="you@company.com" />
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="message" className="block text-sm font-medium text-ink mb-1.5">Message</label>
@@ -75,7 +75,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className="h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto h-12 sm:h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send inquiry"}
               </button>

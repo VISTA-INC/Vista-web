@@ -2,7 +2,7 @@ import SectionHeader from "./SectionHeader";
 
 export default function Research() {
   return (
-    <section id="research" className="py-24 md:py-32">
+    <section id="research" className="py-16 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="05"

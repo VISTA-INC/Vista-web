@@ -18,9 +18,9 @@ export default function Footer() {
             Spatial computing tools that make operational data accessible
           </p>
         </div>
-        <nav className="flex flex-wrap gap-x-8 gap-y-2">
+        <nav className="flex flex-wrap gap-x-8 gap-y-0 md:gap-y-2">
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-body hover:text-ink transition-colors">
+            <a key={l.href} href={l.href} className="inline-flex items-center min-h-11 md:min-h-0 text-sm text-body hover:text-ink transition-colors">
               {l.label}
             </a>
           ))}

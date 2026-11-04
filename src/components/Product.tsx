@@ -20,7 +20,7 @@ const CAPABILITIES = [
 
 export default function Product() {
   return (
-    <section id="product" className="py-24 md:py-32 bg-canvas border-y border-line">
+    <section id="product" className="py-16 md:py-32 bg-canvas border-y border-line">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="02"
