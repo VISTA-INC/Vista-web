@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+
 const LINKS = [
   { label: "Product", href: "#product" },
   { label: "How it works", href: "#how-it-works" },
@@ -11,7 +13,7 @@ export default function Footer() {
     <footer className="border-t border-line bg-canvas">
       <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row md:items-start justify-between gap-8">
         <div>
-          <p className="text-base font-semibold tracking-[0.12em] text-ink">VISTA</p>
+          <Logo />
           <p className="mt-2 text-sm text-muted max-w-xs">
             Spatial computing tools that make operational data accessible
           </p>

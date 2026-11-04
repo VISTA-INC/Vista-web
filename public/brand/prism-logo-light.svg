@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 32" fill="none">
+  <path d="M16 3 3 27h16L16 3Z" fill="#1e3a8a"/>
+  <path d="M16 3l3 24h10L16 3Z" fill="#142a63"/>
+  <text x="40" y="24" font-family="Geist, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="500" letter-spacing="0.6" fill="#111111">PRISM</text>
+</svg>

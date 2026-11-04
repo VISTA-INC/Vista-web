@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Logo from "./Logo";
 
 const NAV_LINKS = [
   { label: "Product", href: "#product" },
@@ -15,8 +16,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-line">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-base font-semibold tracking-[0.12em] text-ink">
-          VISTA
+        <a href="#" aria-label="PRISM by VISTA, home">
+          <Logo />
         </a>
 
         <div className="hidden md:flex items-center gap-8">

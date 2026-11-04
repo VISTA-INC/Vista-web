@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-6 pt-16 md:pt-24">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <p className="text-sm text-muted mb-6">PRISM by VISTA</p>
+            <p className="text-sm text-muted mb-6">Voice data assistant for Meta Quest</p>
             <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-medium tracking-[-0.03em] leading-[1.04] text-ink">
               Answers from your operational data, where the work happens
             </h1>
