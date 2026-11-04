@@ -7,29 +7,28 @@ const NAV_LINKS = [
   { label: "Team", href: "#team" },
 ];
 
-// Phones get a short header (logo and one action) plus the bottom tab bar in MobileNav.
+const pill = "inline-flex items-center h-8 px-3.5 rounded-full text-[13px] transition-colors";
+
+// Desktop: section pills on the left, logo in the middle, one action on the right.
+// Phones: logo and the action only; MobileNav adds the bottom tab bar.
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-line pt-[env(safe-area-inset-top)]">
-      <nav className="max-w-6xl mx-auto px-6 h-14 md:h-16 flex items-center justify-between gap-4">
-        <a href="#" aria-label="PRISM, home">
-          <Logo />
-        </a>
-
-        <div className="flex items-center gap-8">
+    <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur pt-[env(safe-area-inset-top)]">
+      <nav className="max-w-6xl mx-auto px-6 h-14 md:h-16 grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div className="hidden md:flex items-center gap-1.5">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="hidden md:inline text-sm text-body hover:text-ink transition-colors"
-            >
+            <a key={link.href} href={link.href} className={`${pill} bg-card text-body hover:bg-btn hover:text-ink`}>
               {link.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="text-sm font-medium inline-flex items-center h-9 px-4 rounded-lg bg-ink text-paper hover:bg-zinc-800 transition-colors"
-          >
+        </div>
+
+        <a href="#" aria-label="PRISM, home" className="md:justify-self-center">
+          <Logo />
+        </a>
+
+        <div className="justify-self-end">
+          <a href="#contact" className={`${pill} bg-ink text-paper hover:bg-[#30302e]`}>
             <span className="md:hidden">Pilot</span>
             <span className="hidden md:inline">Request a pilot</span>
           </a>

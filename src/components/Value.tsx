@@ -26,15 +26,10 @@ export default function Value() {
           intro="Most teams rely on dashboards built for analysts, or chatbots that guess. PRISM gives frontline teams accurate answers in plain language."
         />
 
-        <div data-animate="stagger" className="grid md:grid-cols-3 border-t border-line">
-          {VALUES.map((v, i) => (
-            <div
-              key={v.title}
-              className={`pt-8 pb-2 md:pr-8 ${i > 0 ? "md:pl-8 md:border-l border-line" : ""} ${
-                i > 0 ? "mt-8 md:mt-0 border-t md:border-t-0" : ""
-              }`}
-            >
-              <h3 className="text-lg font-medium text-ink">{v.title}</h3>
+        <div data-animate="stagger" className="grid md:grid-cols-3 gap-3">
+          {VALUES.map((v) => (
+            <div key={v.title} className="bg-card rounded-xl p-6 md:p-7">
+              <h3 className="text-xl font-semibold text-ink">{v.title}</h3>
               <p className="mt-3 text-body leading-relaxed">{v.text}</p>
             </div>
           ))}

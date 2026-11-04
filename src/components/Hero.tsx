@@ -9,47 +9,43 @@ const FACTS = [
 
 export default function Hero() {
   return (
-    <section className="border-b border-line">
-      <div className="max-w-6xl mx-auto px-6 pt-16 md:pt-24">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
-            <p className="text-sm text-muted mb-6">Voice data assistant for Meta Quest</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-medium tracking-[-0.03em] leading-[1.04] text-ink">
-              Answers from your operational data, where the work happens
-            </h1>
-          </div>
-          <div className="lg:col-span-4">
-            <p className="text-lg leading-relaxed text-body">
-              Ask a question out loud on the floor. PRISM answers with a chart
-              and a 3D view, computed from your own data.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-zinc-800 transition-colors"
-              >
-                Request a pilot
-              </a>
-              <a
-                href="#how-it-works"
-                className="inline-flex items-center justify-center h-11 px-5 rounded-lg border border-line bg-paper text-ink text-sm font-medium hover:bg-canvas transition-colors"
-              >
-                See how it works
-              </a>
-            </div>
-          </div>
-        </div>
+    <section>
+      <div className="max-w-6xl mx-auto px-6 pt-12 md:pt-20">
+        <h1 className="text-[30px] sm:text-4xl lg:text-[46px] leading-[1.17] tracking-[-0.01em] text-ink max-w-5xl">
+          <span className="font-semibold">Answers from your operational data, where the work happens.</span>{" "}
+          <span className="font-serif">
+            PRISM is a voice data assistant for Meta Quest. Ask a question out loud and get a chart and a
+            3D view, computed from your own data.
+          </span>
+        </h1>
 
-        <div className="mt-16 md:mt-20 -mb-px">
+        <div className="mt-8 flex flex-col sm:flex-row gap-2.5">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-[#30302e] transition-colors"
+          >
+            Request a pilot
+          </a>
+          <a
+            href="#how-it-works"
+            className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-btn text-ink text-sm font-medium hover:bg-[#dedbd0] transition-colors"
+          >
+            See how it works →
+          </a>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-0 sm:px-6 mt-12 md:mt-16">
+        <div className="bg-canvas sm:rounded-2xl p-4 sm:p-8 md:p-12">
           <HeroPreview />
         </div>
       </div>
 
-      <div className="bg-canvas border-t border-line mt-16 md:mt-24">
-        <dl className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line">
+      <div className="max-w-6xl mx-auto px-6 mt-4">
+        <dl data-animate="stagger" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {FACTS.map((fact) => (
-            <div key={fact.title} className="bg-canvas px-6 py-8">
-              <dt className="text-sm font-medium text-ink">{fact.title}</dt>
+            <div key={fact.title} className="bg-card rounded-xl px-5 py-5">
+              <dt className="text-sm font-semibold text-ink">{fact.title}</dt>
               <dd className="mt-1 text-sm text-muted leading-relaxed">{fact.text}</dd>
             </div>
           ))}

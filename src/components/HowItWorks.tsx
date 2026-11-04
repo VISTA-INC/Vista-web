@@ -20,7 +20,7 @@ const PATHS = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-16 md:py-32 bg-canvas border-y border-line">
+    <section id="how-it-works" className="py-16 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="04"
@@ -29,7 +29,7 @@ export default function HowItWorks() {
           intro="Speech is transcribed (Whisper or Gemini) and the question is classified. PRISM then routes it to the right pipeline."
         />
 
-        <div data-animate="stagger" className="border border-line rounded-xl overflow-hidden bg-paper">
+        <div data-animate="stagger" className="rounded-xl overflow-hidden bg-card">
           {PATHS.map((p, i) => (
             <div
               key={p.type}

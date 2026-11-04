@@ -55,7 +55,7 @@ function Mark({ ok }: { ok: boolean }) {
 
 function Td({ cell, highlight }: { cell: Cell; highlight?: boolean }) {
   return (
-    <td className={`px-4 py-4 text-sm ${highlight ? "bg-canvas" : ""}`}>
+    <td className={`px-4 py-4 text-sm ${highlight ? "bg-card" : ""}`}>
       <span className="flex items-center gap-2.5">
         <Mark ok={cell.ok} />
         <span className={cell.ok ? (highlight ? "text-ink font-medium" : "text-body") : "text-muted"}>
@@ -79,7 +79,7 @@ export default function Comparison() {
         {/* Phones: one card per capability instead of a sideways-scrolling table */}
         <ul data-animate="stagger" className="md:hidden flex flex-col gap-3">
           {ROWS.map((row) => (
-            <li key={row.feature} className="border border-line rounded-xl p-4">
+            <li key={row.feature} className="bg-card rounded-xl p-4">
               <p className="font-medium text-ink">{row.feature}</p>
               <dl className="mt-3 grid grid-cols-[96px_1fr] gap-x-3 gap-y-2 text-sm">
                 {[
@@ -110,7 +110,7 @@ export default function Comparison() {
                 <th className="px-4 py-4 text-sm font-normal text-muted">Capability</th>
                 <th className="px-4 py-4 text-sm font-normal text-muted">BI dashboard</th>
                 <th className="px-4 py-4 text-sm font-normal text-muted">AI chatbot</th>
-                <th className="px-4 py-4 text-sm font-medium text-ink bg-canvas">PRISM</th>
+                <th className="px-4 py-4 text-sm font-medium text-ink bg-card">PRISM</th>
               </tr>
             </thead>
             <tbody>

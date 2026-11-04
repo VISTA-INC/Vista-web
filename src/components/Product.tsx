@@ -20,7 +20,7 @@ const CAPABILITIES = [
 
 export default function Product() {
   return (
-    <section id="product" className="py-16 md:py-32 bg-canvas border-y border-line">
+    <section id="product" className="py-16 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="02"
@@ -29,11 +29,11 @@ export default function Product() {
           intro="Ask a question out loud. Get an answer and a chart, then open that chart as a 3D graph you can touch and explore."
         />
 
-        <ol data-animate="fade" className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line rounded-xl overflow-hidden mb-20">
+        <ol data-animate="stagger" className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-16 md:mb-20">
           {STEPS.map((step, i) => (
-            <li key={step.title} className="bg-paper p-6 md:p-8">
-              <span className="font-mono text-xs text-accent">0{i + 1}</span>
-              <h3 className="mt-4 text-lg font-medium text-ink">{step.title}</h3>
+            <li key={step.title} className="bg-card rounded-xl p-6">
+              <span className="text-xs text-muted">Step {i + 1}</span>
+              <h3 className="mt-3 text-xl font-semibold text-ink">{step.title}</h3>
               <p className="mt-2 text-sm text-body leading-relaxed">{step.text}</p>
             </li>
           ))}

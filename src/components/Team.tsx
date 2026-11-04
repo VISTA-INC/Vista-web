@@ -23,7 +23,7 @@ const TEAM = [
 
 export default function Team() {
   return (
-    <section id="team" className="py-16 md:py-32 bg-canvas border-y border-line">
+    <section id="team" className="py-16 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="06"
@@ -32,19 +32,20 @@ export default function Team() {
           intro="A founding team combining mixed-reality research, XR engineering, and business operations."
         />
 
-        <div data-animate="fade" className="grid md:grid-cols-3 gap-px bg-line border border-line rounded-xl overflow-hidden">
+        <div data-animate="stagger" className="grid md:grid-cols-3 gap-3">
           {TEAM.map((m) => (
-            <article key={m.name} className="bg-paper p-6 md:p-8 flex flex-col">
-              <h3 className="text-lg font-medium text-ink">{m.name}</h3>
-              <p className="text-sm text-muted">{m.role}</p>
-              <p className="mt-5 text-sm text-body leading-relaxed flex-1">{m.bio}</p>
+            <article key={m.name} className="bg-card rounded-xl p-6 flex flex-col">
+              <span className="self-start text-xs text-muted bg-btn rounded-md px-2 py-0.5">{m.role}</span>
+              <h3 className="mt-4 text-xl font-semibold text-ink">{m.name}</h3>
+              <p className="mt-3 text-sm text-body leading-relaxed flex-1">{m.bio}</p>
               <a
                 href={m.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center min-h-11 text-sm font-medium text-accent hover:underline underline-offset-4"
+                className="mt-6 pt-3 border-t border-line flex items-center justify-between min-h-11 text-sm text-ink hover:text-accent transition-colors"
               >
-                LinkedIn →
+                <span>LinkedIn</span>
+                <span aria-hidden>→</span>
               </a>
             </article>
           ))}
