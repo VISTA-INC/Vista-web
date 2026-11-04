@@ -29,7 +29,7 @@ export default function HowItWorks() {
           intro="Speech is transcribed (Whisper or Gemini) and the question is classified. PRISM then routes it to the right pipeline."
         />
 
-        <div className="border border-line rounded-xl overflow-hidden bg-paper">
+        <div data-animate="stagger" className="border border-line rounded-xl overflow-hidden bg-paper">
           {PATHS.map((p, i) => (
             <div
               key={p.type}
@@ -39,7 +39,7 @@ export default function HowItWorks() {
                 <h3 className="font-medium text-ink">{p.type}</h3>
                 <p className="mt-1 text-sm text-muted">{p.example}</p>
               </div>
-              <ol className="md:col-span-8 grid sm:grid-cols-3 gap-3 text-sm">
+              <ol data-animate="stagger" className="md:col-span-8 grid sm:grid-cols-3 gap-3 text-sm">
                 {p.steps.map((s, j) => (
                   <li key={s} className="flex gap-3 text-body">
                     <span className="font-mono text-xs text-accent pt-0.5">{j + 1}</span>
@@ -51,7 +51,7 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        <div id="security" className="mt-16 grid gap-6 md:grid-cols-12">
+        <div id="security" data-animate="fade" className="mt-16 grid gap-6 md:grid-cols-12">
           <h3 className="md:col-span-3 text-sm font-medium text-ink">Accuracy and security</h3>
           <p className="md:col-span-9 text-body leading-relaxed max-w-3xl">
             For chart questions, the AI only writes the analysis code. Pandas

@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-line pt-[env(safe-area-inset-top)]">
       <nav className="max-w-6xl mx-auto px-6 h-14 md:h-16 flex items-center justify-between gap-4">
-        <a href="#" aria-label="PRISM by VISTA, home">
+        <a href="#" aria-label="PRISM, home">
           <Logo />
         </a>
 

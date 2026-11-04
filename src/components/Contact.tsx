@@ -45,7 +45,7 @@ export default function Contact() {
         />
 
         <div className="grid gap-6 md:grid-cols-12">
-          <div className="md:col-span-3 text-sm text-muted leading-relaxed">
+          <div data-animate="fade" className="md:col-span-3 text-sm text-muted leading-relaxed">
             <p className="font-medium text-ink mb-2">What to include</p>
             <ul className="space-y-1">
               <li>Industry and site size</li>
@@ -54,7 +54,7 @@ export default function Contact() {
             </ul>
           </div>
 
-          <form onSubmit={handleSubmit} className="md:col-span-9 max-w-2xl grid gap-5 sm:grid-cols-2">
+          <form data-animate="stagger" onSubmit={handleSubmit} className="md:col-span-9 max-w-2xl grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-ink mb-1.5">Name</label>
               <input id="name" name="name" type="text" autoComplete="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Full name" />

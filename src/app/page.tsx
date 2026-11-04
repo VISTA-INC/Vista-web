@@ -9,6 +9,7 @@ import Team from "../components/Team";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import MobileNav from "../components/MobileNav";
+import ScrollMotion from "../components/ScrollMotion";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileNav />
+      <ScrollMotion />
     </>
   );
 }

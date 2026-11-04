@@ -32,7 +32,7 @@ export default function Team() {
           intro="A founding team combining mixed-reality research, XR engineering, and business operations."
         />
 
-        <div className="grid md:grid-cols-3 gap-px bg-line border border-line rounded-xl overflow-hidden">
+        <div data-animate="fade" className="grid md:grid-cols-3 gap-px bg-line border border-line rounded-xl overflow-hidden">
           {TEAM.map((m) => (
             <article key={m.name} className="bg-paper p-6 md:p-8 flex flex-col">
               <h3 className="text-lg font-medium text-ink">{m.name}</h3>

@@ -25,3 +25,21 @@ body {
 ::selection {
   background: #dbe3f5;
 }
+
+/* Scroll entrance, set by ScrollMotion. Content is visible unless the script marks it. */
+[data-reveal] {
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

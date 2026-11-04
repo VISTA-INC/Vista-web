@@ -29,7 +29,7 @@ export default function Product() {
           intro="Ask a question out loud. Get an answer and a chart, then open that chart as a 3D graph you can touch and explore."
         />
 
-        <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line rounded-xl overflow-hidden mb-20">
+        <ol data-animate="fade" className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line rounded-xl overflow-hidden mb-20">
           {STEPS.map((step, i) => (
             <li key={step.title} className="bg-paper p-6 md:p-8">
               <span className="font-mono text-xs text-accent">0{i + 1}</span>
@@ -41,7 +41,7 @@ export default function Product() {
 
         <div className="grid gap-6 md:grid-cols-12">
           <h3 className="md:col-span-3 text-sm font-medium text-ink">Capabilities</h3>
-          <dl className="md:col-span-9 grid sm:grid-cols-2 gap-x-10">
+          <dl data-animate="stagger" className="md:col-span-9 grid sm:grid-cols-2 gap-x-10">
             {CAPABILITIES.map((c) => (
               <div key={c.title} className="py-5 border-t border-line">
                 <dt className="font-medium text-ink">{c.title}</dt>

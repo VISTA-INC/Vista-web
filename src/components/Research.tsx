@@ -10,7 +10,7 @@ export default function Research() {
           title="Built on peer-reviewed work"
         />
 
-        <div className="grid gap-6 md:grid-cols-12 border-t border-line pt-8">
+        <div data-animate="stagger" className="grid gap-6 md:grid-cols-12 border-t border-line pt-8">
           <div className="md:col-span-3">
             <p className="text-2xl font-medium tracking-[-0.02em] text-ink">ISMAR 2026</p>
             <p className="mt-1 text-sm text-muted">Poster paper</p>

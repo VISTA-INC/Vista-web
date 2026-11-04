@@ -12,7 +12,6 @@ export default function Logo() {
     <span className="inline-flex items-center gap-2.5">
       <PrismMark />
       <span className="text-base font-medium tracking-[0.02em] text-ink">PRISM</span>
-      <span className="text-sm text-muted">by VISTA</span>
     </span>
   );
 }

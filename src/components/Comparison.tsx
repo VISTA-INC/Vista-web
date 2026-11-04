@@ -77,7 +77,7 @@ export default function Comparison() {
         />
 
         {/* Phones: one card per capability instead of a sideways-scrolling table */}
-        <ul className="md:hidden flex flex-col gap-3">
+        <ul data-animate="stagger" className="md:hidden flex flex-col gap-3">
           {ROWS.map((row) => (
             <li key={row.feature} className="border border-line rounded-xl p-4">
               <p className="font-medium text-ink">{row.feature}</p>
@@ -103,7 +103,7 @@ export default function Comparison() {
           ))}
         </ul>
 
-        <div className="hidden md:block overflow-x-auto border border-line rounded-xl">
+        <div data-animate="fade" className="hidden md:block overflow-x-auto border border-line rounded-xl">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
               <tr className="border-b border-line">
