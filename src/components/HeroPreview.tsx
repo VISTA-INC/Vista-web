@@ -89,7 +89,7 @@ function timeline(q: Question) {
 // Colors (match the PRISM app spec)
 const NEUTRAL = { top: "#2c4486", front: "#233a7a", side: "#1b2f68" };
 const HOVER = { top: "#4a62a8", front: "#3d5598", side: "#324a8c" };
-const ACCENT = { top: "#f8f0dc", front: "#e6dbc0", side: "#cdbf9f" };
+const ACCENT = { top: "#dba62a", front: "#c8920a", side: "#a67807" }; // warm gold highlight
 
 // Isometric projection
 const C = Math.cos(Math.PI / 6);
@@ -143,7 +143,7 @@ function IsoChart({ q, grow, hover, setHover }: ChartProps) {
             <polygon points={pts([[x + W, 0, 0], [x + W, W, 0], [x + W, W, h], [x + W, 0, h]])} fill={c.side} className="transition-[fill] duration-150" />
             <polygon points={pts([[x, W, 0], [x + W, W, 0], [x + W, W, h], [x, W, h]])} fill={c.front} className="transition-[fill] duration-150" />
             <polygon points={pts([[x, 0, h], [x + W, 0, h], [x + W, W, h], [x, W, h]])} fill={c.top} className="transition-[fill] duration-150" />
-            <text x={vx} y={vy - 10} textAnchor="middle" className="font-mono tabular-nums" fontSize="11" fill={isTop ? "#f8f0dc" : hover === i ? "#f8f0dc" : "#a3a5ad"} opacity={g > 0.05 ? 1 : 0}>
+            <text x={vx} y={vy - 10} textAnchor="middle" className="font-mono tabular-nums" fontSize="11" fill={isTop ? "#c8920a" : hover === i ? "#f8f0dc" : "#a3a5ad"} opacity={g > 0.05 ? 1 : 0}>
               {fmt(d.v * g)}
             </text>
             <text x={lx - 6} y={ly + 10} textAnchor="end" className="font-mono" fontSize="10" fill={hover === i ? "#f8f0dc" : "#a3a5ad"}>
@@ -189,7 +189,7 @@ function FlatChart({ q, grow, hover, setHover }: ChartProps) {
           >
             <rect x={x - 8} y={base - maxH - 24} width={bw + 16} height={maxH + 52} fill="transparent" />
             <rect x={x} y={base - h} width={bw} height={h} rx="4" fill={isTop ? ACCENT.top : hover === i ? HOVER.top : NEUTRAL.top} className="transition-[fill] duration-150" />
-            <text x={x + bw / 2} y={base - h - 8} textAnchor="middle" className="font-mono tabular-nums" fontSize="11" fill={isTop ? "#f8f0dc" : hover === i ? "#f8f0dc" : "#a3a5ad"} opacity={g > 0.05 ? 1 : 0}>
+            <text x={x + bw / 2} y={base - h - 8} textAnchor="middle" className="font-mono tabular-nums" fontSize="11" fill={isTop ? "#c8920a" : hover === i ? "#f8f0dc" : "#a3a5ad"} opacity={g > 0.05 ? 1 : 0}>
               {fmt(d.v * g)}
             </text>
             <text x={x + bw / 2} y={base + 18} textAnchor="middle" className="font-mono" fontSize="10" fill={hover === i ? "#f8f0dc" : "#a3a5ad"}>
@@ -327,7 +327,7 @@ export default function HeroPreview() {
               <p className="font-mono text-xs text-[#a3a5ad]">Analyzing {q.file}</p>
               <span className="block h-0.5 rounded-full bg-[#1a3070] overflow-hidden">
                 <span
-                  className="block h-full bg-[#f8f0dc] origin-left"
+                  className="block h-full bg-[#c8920a] origin-left"
                   style={{ transform: `scaleX(${clamp((elapsed - t.typed) / ANALYZE_MS)})` }}
                 />
               </span>
@@ -345,7 +345,7 @@ export default function HeroPreview() {
                 {q.answer[2]}
               </p>
               <p className="mt-4 font-mono text-xs text-[#a3a5ad]">
-                <span className="text-[#f8f0dc]">Σ</span> Computed with pandas from {q.file}
+                <span className="text-[#c8920a]">Σ</span> Computed with pandas from {q.file}
               </p>
               <button
                 type="button"
@@ -398,11 +398,11 @@ export default function HeroPreview() {
                     <span className={`text-left ${on ? "text-[#f8f0dc]" : "text-[#a3a5ad]"}`}>{d.name}</span>
                     <span className="h-2 rounded-sm bg-[#1a3070] overflow-hidden">
                       <span
-                        className={`block h-full rounded-sm origin-left ${isTop ? "bg-[#f8f0dc]" : on ? "bg-[#4a62a8]" : "bg-[#2c4486]"}`}
+                        className={`block h-full rounded-sm origin-left ${isTop ? "bg-[#c8920a]" : on ? "bg-[#4a62a8]" : "bg-[#2c4486]"}`}
                         style={{ transform: `scaleX(${(d.v / topVal) * grow(i)})` }}
                       />
                     </span>
-                    <span className={`text-right tabular-nums ${isTop ? "text-[#f8f0dc]" : on ? "text-[#f8f0dc]" : "text-[#a3a5ad]"}`}>{fmt(d.v * grow(i))}</span>
+                    <span className={`text-right tabular-nums ${isTop ? "text-[#c8920a]" : on ? "text-[#f8f0dc]" : "text-[#a3a5ad]"}`}>{fmt(d.v * grow(i))}</span>
                   </button>
                 </li>
               );
