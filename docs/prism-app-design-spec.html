@@ -170,6 +170,43 @@ td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-spa
 .mini-bars i.hi { background: var(--app-accent); }
 .mini-names { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--app-muted); text-align: center; }
 
+
+/* Interactive phone demo */
+.demo { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 40px; align-items: center; }
+.demo .phone { margin: 0 auto; }
+.demo-side { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump button { height: 36px; padding: 0 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); font: 500 13px var(--font); cursor: pointer; transition: background-color 150ms, color 150ms; }
+.jump button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: transparent; }
+.jump button:focus-visible, .phone button:focus-visible, .phone [tabindex]:focus-visible { outline: 2px solid var(--app-accent); outline-offset: 2px; }
+:where(.phone) :where(button) { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.phone .source { font-family: var(--mono); font-size: 11px; color: var(--app-muted); }
+.phone .source span { color: var(--app-accent-ink); }
+.phone .p-body { color: var(--app-fg2); line-height: 1.55; }
+.phone .p-body b { color: var(--app-fg); font-weight: 500; }
+.scr { flex: 1; display: flex; flex-direction: column; min-height: 0; transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+.scr.in { opacity: 0; transform: translateY(8px); }
+.recent button { display: flex; justify-content: space-between; gap: 12px; width: 100%; text-align: left; padding: 12px 0; border-top: 1px solid var(--app-line); font-size: 13px; color: var(--app-fg); transition: color 150ms; }
+.recent button:hover { color: var(--app-accent-ink); }
+.recent button span:last-child { font-family: var(--mono); font-size: 11px; color: var(--app-muted); flex: none; }
+.phone .talk { transition: transform 120ms cubic-bezier(0.22, 1, 0.36, 1), background-color 150ms; }
+.phone .talk:active { transform: scale(0.97); }
+.phone .talk.live { background: var(--app-accent); }
+.meter { display: flex; gap: 3px; align-items: center; height: 16px; }
+.meter i { display: block; width: 3px; border-radius: 2px; background: var(--app-accent); transition: height 100ms; }
+.ph-back { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; color: var(--app-fg2); }
+.ph-btn { transition: background-color 150ms, transform 120ms; }
+.ph-btn:active { transform: scale(0.97); }
+.an-wrap { position: relative; }
+.an-status { position: absolute; inset: 14px; display: flex; flex-direction: column; justify-content: center; gap: 10px; transition: opacity 200ms; }
+.an-status span:last-child { display: block; height: 2px; border-radius: 1px; background: var(--app-control); overflow: hidden; }
+.an-status b { display: block; height: 100%; background: var(--app-accent); transform-origin: left; }
+.an-body { display: flex; flex-direction: column; gap: 10px; transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+.mini-bars i { transform-origin: bottom; }
+.ar svg g { cursor: pointer; }
+.ar svg { transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+@media (max-width: 640px) { .demo { grid-template-columns: 1fr; gap: 24px; } }
+
 @media (max-width: 520px) {
   .stage { padding: 16px; }
   .rec { width: 100%; }
@@ -339,60 +376,24 @@ td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-spa
   <section>
     <div class="sec-head"><span class="meta">Phone</span><h2>PRISM on phones</h2></div>
     <p class="fg2">The same assistant for people who are not wearing a headset. Ask by voice or by typing, read the answer and chart on the phone, then place the 3D chart on a table or the floor in AR. It uses the same colors, type and source line as the headset, so a team can move between the two.</p>
-    <div class="phones">
-      <div class="phone" role="img" aria-label="Ask screen">
-        <div class="ph-status"><span>9:41</span><span>5G · 82%</span></div>
-        <div class="ph-top"><span class="ph-brand"><svg width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 3 27h26L16 3Z" fill="#a9b8f2"/><path d="M16 3l3 24h10L16 3Z" fill="#7189e0"/></svg>PRISM</span><span class="chip">manufacturing_ops.csv</span></div>
-        <div class="ph-body">
-          <span class="ph-label">Recent</span>
-          <div class="recent">
-            <div><span>Which operation is most frequent?</span><span>9:12</span></div>
-            <div><span>Show job status as a share</span><span>Yesterday</span></div>
-            <div><span>Energy use by machine this week</span><span>Mon</span></div>
-          </div>
-        </div>
-        <div class="ph-bottom">
-          <div class="talk"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg></div>
-          <span class="ph-label">Hold to ask</span>
-          <div class="typebox">Type a question</div>
-        </div>
-      </div>
-
-      <div class="phone" role="img" aria-label="Answer screen">
-        <div class="ph-status"><span>9:41</span><span>5G · 82%</span></div>
-        <div class="ph-top"><span class="ph-brand"><svg width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 3 27h26L16 3Z" fill="#a9b8f2"/><path d="M16 3l3 24h10L16 3Z" fill="#7189e0"/></svg>PRISM</span><span class="chip">manufacturing_ops.csv</span></div>
-        <div class="ph-body">
-          <div class="q" style="font-size:14px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg><span>Which operation is most frequent?</span></div>
-          <div class="answer" style="padding:14px;gap:10px">
-            <span class="fig" style="font-size:30px">212</span>
-            <p class="p-body" style="font-size:13px"><b>Lathe</b> is the most frequent operation, with 212 records. <b>Drilling</b> is the least frequent, with 189.</p>
-            <div class="mini-bars"><i class="hi" style="height:100%"></i><i style="height:96.7%"></i><i style="height:93.4%"></i><i style="height:92.5%"></i><i style="height:89.2%"></i></div>
-            <div class="mini-names"><span>Lat</span><span>Mil</span><span>Gri</span><span>Wel</span><span>Dri</span></div>
-            <span class="source" style="font-size:11px"><span>Σ</span> Computed from manufacturing_ops.csv</span>
-          </div>
-          <div class="ph-actions" style="margin-top:auto"><span class="ph-btn primary">View in AR</span><span class="ph-btn">Share</span></div>
-        </div>
-        <div class="ph-bottom" style="flex-direction:row;padding-bottom:20px">
-          <div class="typebox" style="flex:1">Ask a follow-up</div>
-          <div class="talk" style="width:40px;height:40px;border-radius:10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg></div>
-        </div>
-      </div>
-
-      <div class="phone" role="img" aria-label="AR view">
-        <div class="ph-status"><span>9:41</span><span>5G · 82%</span></div>
-        <div class="ar">
-          <span class="ar-close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span>
-          <svg class="iso" viewBox="-88 -180 452 408" style="width:100%;height:auto" aria-hidden="true"></svg>
-        </div>
-        <div class="sheet">
-          <span class="grab"></span>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-size:15px;font-weight:500">Lathe</span><span class="mono" style="font-size:12px;color:var(--app-accent-ink)">212 operations</span></div>
-          <span class="ph-label">Most frequent of 5 types · 21.2% of all records</span>
-          <div class="ph-actions"><span class="ph-btn">Move</span><span class="ph-btn">Reset</span></div>
+    <div class="demo">
+      <div class="phone" id="pd"></div>
+      <div class="demo-side">
+        <h3>Try it</h3>
+        <ol class="plain">
+          <li>Tap a recent question, or press the button to ask by voice</li>
+          <li>The answer arrives the same way as on the headset: question, analyzing, then the figure and chart</li>
+          <li>Tap View in AR, then tap a bar to see its detail sheet</li>
+        </ol>
+        <span class="muted" style="font-size:13px;margin-top:8px">Jump to a screen</span>
+        <div class="jump" role="group" aria-label="Phone screens">
+          <button type="button" data-jump="ask">Ask</button>
+          <button type="button" data-jump="answer">Answer</button>
+          <button type="button" data-jump="ar">AR view</button>
         </div>
       </div>
     </div>
-    <p class="stage-note">Screens shown at a reduced scale. Sample data as above.</p>
+    <p class="stage-note">Interactive mockup at reduced scale with sample data. Motion is skipped when reduced motion is on.</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Phone style</th><th>Font</th><th>Size, pt</th><th>Use</th></tr></thead>
       <tbody>
@@ -491,3 +492,210 @@ td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-spa
   });
 })();
 </script>
+<script>
+(function () {
+  var pd = document.getElementById("pd");
+  if (!pd) return;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var QS = [
+    { recent: "Which operation is most frequent?", time: "9:12", q: "Which operation is most frequent?", file: "manufacturing_ops.csv", unit: "records",
+      data: [["Lathe", 212], ["Milling", 205], ["Grinding", 198], ["Welding", 196], ["Drilling", 189]], short: ["Lat", "Mil", "Gri", "Wel", "Dri"],
+      fig: 212, suffix: "", text: "<b>Lathe</b> is the most frequent operation, with 212 records. <b>Drilling</b> is the least frequent, with 189.", topLine: "Most frequent of 5 types" },
+    { recent: "Where did we lose the most downtime?", time: "Yesterday", q: "Where did we lose the most time to downtime?", file: "downtime_log.csv", unit: "min",
+      data: [["Press 1", 48], ["Press 2", 35], ["CNC 3", 126], ["Press 4", 52], ["Lathe 5", 41]], short: ["Pr 1", "Pr 2", "CNC 3", "Pr 4", "Lat 5"],
+      fig: 126, suffix: " min", text: "<b>CNC 3</b> had the most downtime this week, almost three times the average of the other four machines.", topLine: "Most downtime of 5 machines" },
+    { recent: "Energy use by machine this week", time: "Mon", q: "Which machine used the most energy this week?", file: "energy_log.csv", unit: "kWh",
+      data: [["Press 1", 412], ["Press 2", 538], ["CNC 3", 296], ["Press 4", 861], ["Lathe 5", 344]], short: ["Pr 1", "Pr 2", "CNC 3", "Pr 4", "Lat 5"],
+      fig: 861, suffix: " kWh", text: "<b>Press 4</b> used the most energy this week, about twice the average of the other four machines.", topLine: "Highest of 5 machines" }
+  ];
+
+  var TYPE = 22, ANALYZE = 600, GROW = 460, STAGGER = 60;
+  var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+  var clamp = function (t) { return Math.min(1, Math.max(0, t)); };
+  var fmt = function (n) { return Math.round(n).toLocaleString("en-US"); };
+  var st = { screen: "ask", qi: 0, sel: null, shift: 0 };
+  var raf = null, meterTimer = null;
+
+  var MIC = function (z) { return '<svg width="' + z + '" height="' + z + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg>'; };
+  var MARK = '<svg width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 3 27h26L16 3Z" fill="#a9b8f2"/><path d="M16 3l3 24h10L16 3Z" fill="#7189e0"/></svg>';
+  var STATUS = '<div class="ph-status"><span>9:41</span><span>5G · 82%</span></div>';
+  var BACK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+  var CLOSE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+
+  function q() { return QS[st.qi]; }
+  function top(d) { return Math.max.apply(null, d.data.map(function (r) { return r[1]; })); }
+  function stop() { if (raf) cancelAnimationFrame(raf); raf = null; if (meterTimer) clearInterval(meterTimer); meterTimer = null; }
+
+  function run(total, frame) {
+    stop();
+    if (reduced) { frame(total); return; }
+    var start = performance.now();
+    var tick = function (now) {
+      var e = Math.min(now - start, total);
+      frame(e);
+      if (e < total) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+  }
+
+  function screenAsk() {
+    var rows = QS.map(function (d, i) { return '<button type="button" data-act="ask:' + i + '"><span>' + d.recent + '</span><span>' + d.time + '</span></button>'; }).join("");
+    return STATUS +
+      '<div class="ph-top"><span class="ph-brand">' + MARK + 'PRISM</span><span class="chip">manufacturing_ops.csv</span></div>' +
+      '<div class="ph-body"><span class="ph-label">Recent</span><div class="recent">' + rows + '</div></div>' +
+      '<div class="ph-bottom">' +
+        '<button type="button" class="talk" data-act="talk" aria-label="Ask by voice">' + MIC(26) + '</button>' +
+        '<span class="ph-label" id="talk-label" style="display:flex;align-items:center;gap:8px;min-height:16px">Hold to ask</span>' +
+        '<div class="typebox">Type a question</div>' +
+      '</div>';
+  }
+
+  function screenAnswer() {
+    var d = q(), t = top(d);
+    var bars = d.data.map(function (r, i) { return '<i data-b="' + i + '" class="' + (r[1] === t ? "hi" : "") + '" style="height:' + (r[1] / t * 100).toFixed(1) + '%;transform:scaleY(0)"></i>'; }).join("");
+    var names = d.short.map(function (s) { return "<span>" + s + "</span>"; }).join("");
+    return STATUS +
+      '<div class="ph-top"><span class="ph-brand"><button type="button" class="ph-back" data-act="back" aria-label="Back to questions">' + BACK + '</button>' + MARK + 'PRISM</span><span class="chip">' + d.file + '</span></div>' +
+      '<div class="ph-body">' +
+        '<div class="q" style="font-size:14px">' + MIC(14) + '<span><span id="typed" aria-hidden="true"></span><span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">' + d.q + '</span></span></div>' +
+        '<div class="answer an-wrap" style="padding:14px">' +
+          '<div class="an-status" id="an-status"><span class="source">Analyzing ' + d.file + '</span><span><b id="an-bar" style="transform:scaleX(0)"></b></span></div>' +
+          '<div class="an-body" id="an-body" style="opacity:0;transform:translateY(8px)">' +
+            '<span class="fig" style="font-size:30px" id="fig">0</span>' +
+            '<p class="p-body" style="font-size:13px">' + d.text + '</p>' +
+            '<div class="mini-bars">' + bars + '</div>' +
+            '<div class="mini-names">' + names + '</div>' +
+            '<span class="source" style="font-size:11px"><span>Σ</span> Computed from ' + d.file + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="ph-actions" style="margin-top:auto"><button type="button" class="ph-btn primary" data-act="ar">View in AR</button><button type="button" class="ph-btn" data-act="share" id="share">Share</button></div>' +
+      '</div>' +
+      '<div class="ph-bottom" style="flex-direction:row;padding-bottom:20px"><div class="typebox" style="flex:1">Ask a follow-up</div><button type="button" class="talk" style="width:40px;height:40px;border-radius:10px" data-act="talk-answer" aria-label="Ask a follow-up by voice">' + MIC(18) + '</button></div>';
+  }
+
+  function screenAR() {
+    return STATUS +
+      '<div class="ar"><button type="button" class="ar-close" data-act="close" aria-label="Close AR view">' + CLOSE + '</button><svg id="ar-svg" role="img" aria-label="3D chart placed in the room" style="width:100%;height:auto"></svg></div>' +
+      '<div class="sheet"><span class="grab"></span>' +
+        '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-size:15px;font-weight:500" id="sh-name"></span><span class="mono" style="font-size:12px;color:var(--app-accent-ink)" id="sh-val"></span></div>' +
+        '<span class="ph-label" id="sh-line"></span>' +
+        '<div class="ph-actions"><button type="button" class="ph-btn" data-act="move">Move</button><button type="button" class="ph-btn" data-act="reset">Reset</button></div>' +
+      '</div>';
+  }
+
+  function render(html) {
+    pd.innerHTML = '<div class="scr' + (reduced ? "" : " in") + '">' + html + "</div>";
+    var scr = pd.firstChild;
+    if (!reduced) requestAnimationFrame(function () { requestAnimationFrame(function () { scr.classList.remove("in"); }); });
+    document.querySelectorAll("[data-jump]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.jump === st.screen)); });
+  }
+
+  function go(screen, qi) {
+    stop();
+    st.screen = screen;
+    if (qi != null) st.qi = qi;
+    if (screen === "ask") render(screenAsk());
+    if (screen === "answer") { render(screenAnswer()); playAnswer(); }
+    if (screen === "ar") { st.sel = null; st.shift = 0; render(screenAR()); playAR(); }
+  }
+
+  function playAnswer() {
+    var d = q(), typedEnd = d.q.length * TYPE, analyzed = typedEnd + ANALYZE;
+    var total = analyzed + (d.data.length - 1) * STAGGER + GROW;
+    var typed = pd.querySelector("#typed"), status = pd.querySelector("#an-status"), bar = pd.querySelector("#an-bar"),
+        body = pd.querySelector("#an-body"), fig = pd.querySelector("#fig"), bars = pd.querySelectorAll("[data-b]");
+    run(total, function (e) {
+      typed.textContent = d.q.slice(0, Math.floor(e / TYPE));
+      var an = e >= typedEnd && e < analyzed;
+      status.style.opacity = an ? 1 : 0;
+      bar.style.transform = "scaleX(" + clamp((e - typedEnd) / ANALYZE) + ")";
+      var done = e >= analyzed;
+      body.style.opacity = done ? 1 : 0;
+      body.style.transform = done ? "none" : "translateY(8px)";
+      var g0 = ease(clamp((e - analyzed) / (GROW + (d.data.length - 1) * STAGGER)));
+      fig.textContent = fmt(d.fig * g0) + d.suffix;
+      bars.forEach(function (b, i) { b.style.transform = "scaleY(" + ease(clamp((e - analyzed - i * STAGGER) / GROW)) + ")"; });
+    });
+  }
+
+  // Isometric chart for the AR view
+  var C = Math.cos(Math.PI / 6), S = 0.5, W = 32, GAP = 84, MAXH = 150;
+  function pr(p) { return [(p[0] - p[1]) * C, (p[0] + p[1]) * S - p[2]]; }
+  function pts(list) { return list.map(function (p) { return pr(p).map(function (n) { return n.toFixed(1); }).join(","); }).join(" "); }
+
+  function drawAR(grow) {
+    var d = q(), t = top(d), svg = pd.querySelector("#ar-svg");
+    if (!svg) return;
+    var minY = 0;
+    d.data.forEach(function (r, i) { minY = Math.min(minY, i * GAP * S - (r[1] / t) * MAXH - 30); });
+    svg.setAttribute("viewBox", "-96 " + Math.floor(minY) + " 468 " + Math.ceil(232 - minY));
+    var end = (d.data.length - 1) * GAP + W + 20;
+    var out = '<polygon points="' + pts([[-20, -20, 0], [end, -20, 0], [end, W + 20, 0], [-20, W + 20, 0]]) + '" fill="rgba(20,20,21,0.55)" stroke="rgba(237,237,237,0.12)"/>';
+    d.data.forEach(function (r, i) {
+      var x = i * GAP, g = grow(i), h = Math.max(0.5, (r[1] / t) * MAXH * g), isTop = r[1] === t, on = st.sel === i;
+      var c = isTop ? ["#8ea2ee", "#5d77d6", "#4560c2"] : on ? ["#6a6a71", "#505056", "#3d3d42"] : ["#4a4a50", "#38383d", "#2b2b2f"];
+      var vx = pr([x + W / 2, W / 2, h])[0], vy = pr([x, 0, h])[1], l = pr([x + W / 2, W + 14, 0]);
+      out += '<g data-act="bar:' + i + '" tabindex="0" role="button" aria-label="' + r[0] + ", " + fmt(r[1]) + " " + d.unit + '">' +
+        '<polygon points="' + pts([[x + W, 0, 0], [x + W, W, 0], [x + W, W, h], [x + W, 0, h]]) + '" fill="' + c[2] + '"/>' +
+        '<polygon points="' + pts([[x, W, 0], [x + W, W, 0], [x + W, W, h], [x, W, h]]) + '" fill="' + c[1] + '"/>' +
+        '<polygon points="' + pts([[x, 0, h], [x + W, 0, h], [x + W, W, h], [x, W, h]]) + '" fill="' + c[0] + '"/>' +
+        (g > 0.05 ? '<text x="' + vx.toFixed(1) + '" y="' + (vy - 12).toFixed(1) + '" text-anchor="middle" font-size="16" font-family="Geist Mono, monospace" fill="' + (isTop ? "#a9b8f2" : on ? "#ededed" : "#d4d4d8") + '">' + fmt(r[1] * g) + "</text>" : "") +
+        '<text x="' + (l[0] - 6).toFixed(1) + '" y="' + (l[1] + 14).toFixed(1) + '" text-anchor="end" font-size="15" font-family="Geist Mono, monospace" fill="' + (on || isTop ? "#ededed" : "#d4d4d8") + '">' + d.short[i] + "</text></g>";
+    });
+    svg.innerHTML = out;
+    svg.style.transform = "translateX(" + st.shift + "px)";
+  }
+
+  function sheet() {
+    var d = q(), t = top(d), sum = d.data.reduce(function (a, r) { return a + r[1]; }, 0);
+    var i = st.sel != null ? st.sel : d.data.findIndex(function (r) { return r[1] === t; });
+    var r = d.data[i], share = (r[1] / sum * 100).toFixed(1) + "% of all";
+    pd.querySelector("#sh-name").textContent = r[0];
+    pd.querySelector("#sh-val").textContent = fmt(r[1]) + " " + d.unit;
+    pd.querySelector("#sh-line").textContent = (r[1] === t ? d.topLine : Math.round(r[1] / t * 100) + "% of the top") + " · " + share;
+  }
+
+  function playAR() {
+    var d = q(), total = (d.data.length - 1) * STAGGER + GROW + 200;
+    sheet();
+    run(total, function (e) { drawAR(function (i) { return ease(clamp((e - 200 - i * STAGGER) / GROW)); }); });
+  }
+
+  function listen(next) {
+    var label = pd.querySelector("#talk-label"), btn = pd.querySelector('[data-act="talk"]');
+    if (!label || reduced) { next(); return; }
+    stop();
+    btn.classList.add("live");
+    label.innerHTML = '<span class="meter"><i></i><i></i><i></i><i></i><i></i></span>Listening';
+    var bars = label.querySelectorAll("i");
+    meterTimer = setInterval(function () { bars.forEach(function (b) { b.style.height = (4 + Math.random() * 12).toFixed(0) + "px"; }); }, 110);
+    setTimeout(function () { clearInterval(meterTimer); meterTimer = null; next(); }, 1100);
+  }
+
+  pd.addEventListener("click", function (ev) {
+    var el = ev.target.closest("[data-act]");
+    if (!el) return;
+    var act = el.dataset.act;
+    if (act.indexOf("ask:") === 0) go("answer", +act.slice(4));
+    else if (act === "talk") listen(function () { go("answer", 0); });
+    else if (act === "talk-answer") go("answer", (st.qi + 1) % QS.length);
+    else if (act === "back") go("ask");
+    else if (act === "ar") go("ar");
+    else if (act === "close") go("answer");
+    else if (act === "share") { el.textContent = "Link copied"; setTimeout(function () { if (el.isConnected) el.textContent = "Share"; }, 1400); }
+    else if (act.indexOf("bar:") === 0) { var i = +act.slice(4); st.sel = st.sel === i ? null : i; drawAR(function () { return 1; }); sheet(); }
+    else if (act === "move") { st.shift = st.shift === 0 ? -24 : st.shift < 0 ? 24 : 0; drawAR(function () { return 1; }); }
+    else if (act === "reset") { st.sel = null; st.shift = 0; playAR(); }
+  });
+  pd.addEventListener("keydown", function (ev) {
+    if ((ev.key === "Enter" || ev.key === " ") && ev.target.matches && ev.target.matches("g[data-act]")) { ev.preventDefault(); ev.target.dispatchEvent(new MouseEvent("click", { bubbles: true })); }
+  });
+  document.querySelectorAll("[data-jump]").forEach(function (b) {
+    b.addEventListener("click", function () { go(b.dataset.jump); });
+  });
+
+  go("ask");
+})();
+</script>
+
