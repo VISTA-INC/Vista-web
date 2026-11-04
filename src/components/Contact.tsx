@@ -9,7 +9,7 @@ import SectionHeader from "./SectionHeader";
 const EMPTY = { name: "", company: "", email: "", message: "" };
 
 const inputClass =
-  "w-full px-3.5 py-3 md:py-2.5 text-base md:text-sm rounded-lg border border-line bg-paper text-ink placeholder:text-zinc-400 focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-colors";
+  "w-full px-3.5 py-3 md:py-2.5 text-base md:text-sm rounded-lg border border-line bg-field text-ink placeholder:text-muted/70 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors";
 
 export default function Contact() {
   const [formData, setFormData] = useState(EMPTY);
@@ -75,7 +75,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className="w-full sm:w-auto h-12 sm:h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-[#30302e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto h-12 sm:h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send inquiry"}
               </button>

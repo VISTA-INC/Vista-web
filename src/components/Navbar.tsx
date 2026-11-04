@@ -28,7 +28,7 @@ export default function Navbar() {
         </a>
 
         <div className="justify-self-end">
-          <a href="#contact" className={`${pill} bg-ink text-paper hover:bg-[#30302e]`}>
+          <a href="#contact" className={`${pill} bg-ink text-paper hover:bg-accent`}>
             <span className="md:hidden">Pilot</span>
             <span className="hidden md:inline">Request a pilot</span>
           </a>

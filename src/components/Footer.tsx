@@ -8,11 +8,11 @@ const LINKS = [
   { label: "Request a pilot", href: "#contact" },
 ];
 
-// Navy footer, the same background as the logo, app icon and splash screen.
+// Deep navy footer.
 // Logo on the left, section links as rows with hairlines on the right.
 export default function Footer() {
   return (
-    <footer className="bg-[linear-gradient(#0b0056,#060039)] text-white pb-[calc(64px+env(safe-area-inset-bottom))] md:pb-0">
+    <footer className="bg-ink text-white pb-[calc(64px+env(safe-area-inset-bottom))] md:pb-0">
       <div className="max-w-6xl mx-auto px-6 pt-14 pb-10 grid gap-10 md:grid-cols-12">
         <div className="md:col-span-4">
           <Logo tone="dark" height={52} />

@@ -23,13 +23,13 @@ export default function Hero() {
             <div className="mt-6 flex flex-col sm:flex-row gap-2.5">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-[#30302e] transition-colors"
+                className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-accent transition-colors"
               >
                 Request a pilot
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-btn text-ink text-sm font-medium hover:bg-[#dedbd0] transition-colors"
+                className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-btn text-ink text-sm font-medium hover:bg-[#ddcfac] transition-colors"
               >
                 See how it works
               </a>

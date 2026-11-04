@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-paper: #faf9f5;
-  --color-canvas: #f5f4ed;
-  --color-card: #f0eee6;
-  --color-btn: #e8e6dc;
-  --color-ink: #141413;
-  --color-body: #3d3d3a;
-  --color-muted: #6b6a65;
-  --color-line: #e3e1d8;
-  --color-accent: #1e3a8a;
+  /* Cream, deep navy and navy. Card, line and text tones are mixes of the three. */
+  --color-paper: #f8f0dc;
+  --color-canvas: #f2e8cf;
+  --color-card: #efe4c8;
+  --color-btn: #e7dabb;
+  --color-field: #fcf8ee;
+  --color-ink: #0a1a40;
+  --color-body: #2e3a5c;
+  --color-muted: #5b6380;
+  --color-line: #e2d6b8;
+  --color-accent: #1a3070;
   --font-sans: var(--font-dm-sans);
   --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
@@ -26,7 +28,7 @@ body {
 }
 
 ::selection {
-  background: #dbe3f5;
+  background: #e7dabb;
 }
 
 /* Scroll entrance, set by ScrollMotion. Content is visible unless the script marks it. */
