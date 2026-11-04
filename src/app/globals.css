@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Cream, deep navy and navy. Card, line and text tones are mixes of the three. */
-  --color-paper: #f8f0dc;
-  --color-canvas: #f2e8cf;
-  --color-card: #efe4c8;
-  --color-btn: #e7dabb;
-  --color-field: #fcf8ee;
-  --color-ink: #0a1a40;
-  --color-body: #2e3a5c;
-  --color-muted: #5b6380;
-  --color-line: #e2d6b8;
-  --color-accent: #1a3070;
+  /* Night-sky palette: #14060A, #25004B, #6C08AB, #6E289A, #9C65BB.
+     Surfaces are mixes of the two darkest; text is a light tint of the lilac. */
+  --color-paper: #14060a;
+  --color-canvas: #1b0424;
+  --color-card: #200238;
+  --color-btn: #25004b;
+  --color-field: #1b0424;
+  --color-ink: #f3ecf8;
+  --color-body: #d9cbe6;
+  --color-muted: #a98cc0;
+  --color-line: #3a1f4d;
+  --color-accent: #9c65bb;
+  --color-primary: #6c08ab;
+  --color-primary-hover: #6e289a;
   --font-sans: var(--font-dm-sans);
   --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
@@ -28,7 +31,8 @@ body {
 }
 
 ::selection {
-  background: #e7dabb;
+  background: #6e289a;
+  color: #ffffff;
 }
 
 /* Scroll entrance, set by ScrollMotion. Content is visible unless the script marks it. */

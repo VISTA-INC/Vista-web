@@ -75,7 +75,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className="w-full sm:w-auto h-12 sm:h-11 px-5 rounded-lg bg-ink text-paper text-sm font-medium hover:bg-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto h-12 sm:h-11 px-5 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send inquiry"}
               </button>

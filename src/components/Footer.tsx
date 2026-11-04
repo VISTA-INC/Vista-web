@@ -8,11 +8,11 @@ const LINKS = [
   { label: "Request a pilot", href: "#contact" },
 ];
 
-// Deep navy footer.
+// Deep purple footer.
 // Logo on the left, section links as rows with hairlines on the right.
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white pb-[calc(64px+env(safe-area-inset-bottom))] md:pb-0">
+    <footer className="bg-btn text-white pb-[calc(64px+env(safe-area-inset-bottom))] md:pb-0">
       <div className="max-w-6xl mx-auto px-6 pt-14 pb-10 grid gap-10 md:grid-cols-12">
         <div className="md:col-span-4">
           <Logo tone="dark" height={52} />
