@@ -18,9 +18,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <DemoVideo />
         <Value />
         <Product />
-        <DemoVideo />
         <Comparison />
         <HowItWorks />
         <Research />

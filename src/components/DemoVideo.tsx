@@ -16,7 +16,17 @@ export default function DemoVideo() {
       return;
     }
     // Only play while the video is on screen
-    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()), {
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        v.muted = false;
+        v.play().catch(() => {
+          v.muted = true;
+          v.play().catch(() => {});
+        });
+      } else {
+        v.pause();
+      }
+    }, {
       threshold: 0.25,
     });
     io.observe(v);
@@ -29,7 +39,7 @@ export default function DemoVideo() {
         <SectionHeader
           label="Demo"
           title="See it in action"
-          intro="A 30-second walkthrough: ask a question, read the answer, pick a bar, switch views and try another question."
+          intro="Watch PRISM turn a voice question into an interactive 3D answer — in seconds."
         />
         <div data-animate="fade" className="rounded-2xl bg-canvas p-2 sm:p-3 md:p-4">
           <video
@@ -38,18 +48,14 @@ export default function DemoVideo() {
             poster="/media/prism-demo-poster.jpg"
             width={1104}
             height={652}
-            muted
-            loop
             playsInline
             controls
             preload="metadata"
             aria-label="PRISM demo: asking about energy, downtime and output, selecting bars and switching between 3D and 2D charts"
           >
-            <source src="/media/prism-demo.webm" type="video/webm" />
             <source src="/media/prism-demo.mp4" type="video/mp4" />
           </video>
         </div>
-        <p className="mt-3 text-sm text-muted">Recorded from the example panel above, with sample data</p>
       </div>
     </section>
   );

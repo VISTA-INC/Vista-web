@@ -21,7 +21,7 @@ export default function Value() {
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           index="01"
-          label="Why VISTA"
+          label="Why PRISM"
           title="Data access for the people who run operations, not just the people who analyze them"
           intro="Most teams rely on dashboards built for analysts, or chatbots that guess. PRISM gives frontline teams accurate answers in plain language."
         />
